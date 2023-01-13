@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on rock rabbit</title>
+    <link>http://rock-rabbit.github.io/categories/hugo/</link>
+    <description>Recent content in Hugo on rock rabbit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo 文件的前置参数</title>
+      <link>http://rock-rabbit.github.io/posts/hugo/front-matter/</link>
+      <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://rock-rabbit.github.io/posts/hugo/front-matter/</guid>
+      <description>--- # author 作者 author: &amp;#34;Hugo Authors&amp;#34; # title 内容标题 title: &amp;#34;Hugo 文件的前置参数&amp;#34; # description 描述 description: &amp;#34;这是使用 hugo 编写 markdown 文章时所有内置的参数，整理出来方便以后查找使用。&amp;#34; # tags 内容标签 tags: [&amp;#34;hugo&amp;#34;, &amp;#34;快捷手册&amp;#34;] # lastmod 上次修改时间 lastmod: &amp;#34;2022-05-27&amp;#34; # date 内容排序时间 date: &amp;#34;2022-05-27&amp;#34; # weight 用于排序 weight: 1 # 文章分类 categories: - &amp;#34;Hugo&amp;#34; --- </description>
+    </item>
+    
+  </channel>
+</rss>

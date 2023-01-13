@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小问题 on rock rabbit</title>
+    <link>http://rock-rabbit.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
+    <description>Recent content in 小问题 on rock rabbit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang os.Rename 时出现错误，不能跨磁盘移动文件解决方法！</title>
+      <link>http://rock-rabbit.github.io/posts/golang/file-move/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://rock-rabbit.github.io/posts/golang/file-move/</guid>
+      <description>在 windows 下跨卷使用 os.Rename 时会报错：golang cannot move the file to a different disk drive.
+不能直接跨卷/分区使用，可以使用以下方法实现跨卷/分区的文件移动。
+实现逻辑：在目标位置新建一个空文件，使用 io.Copy 拷贝数据到新文件里后，删除源文件。
+// MoveFile 实现跨卷/分区移动文件 func MoveFile(sourcePath, destPath string) error { inputFile, err := os.Open(sourcePath) if err != nil { return fmt.Errorf(&amp;#34;Couldn&amp;#39;t open source file: %s&amp;#34;, err) } outputFile, err := os.Create(destPath) if err != nil { inputFile.Close() return fmt.Errorf(&amp;#34;Couldn&amp;#39;t open dest file: %s&amp;#34;, err) } defer outputFile.Close() _, err = io.Copy(outputFile, inputFile) inputFile.Close() if err !</description>
+    </item>
+    
+  </channel>
+</rss>

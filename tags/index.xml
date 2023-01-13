@@ -6,103 +6,94 @@
     <description>Recent content in Tags on rock rabbit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>hugo</title>
-      <link>http://rock-rabbit.github.io/tags/hugo/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      <title>Umami</title>
+      <link>http://rock-rabbit.github.io/tags/umami/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/hugo/</guid>
+      <guid>http://rock-rabbit.github.io/tags/umami/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>themes</title>
-      <link>http://rock-rabbit.github.io/tags/themes/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      <title>工具</title>
+      <link>http://rock-rabbit.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/themes/</guid>
+      <guid>http://rock-rabbit.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>configuration</title>
-      <link>http://rock-rabbit.github.io/tags/configuration/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <title>Mysql</title>
+      <link>http://rock-rabbit.github.io/tags/mysql/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/configuration/</guid>
+      <guid>http://rock-rabbit.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>development</title>
-      <link>http://rock-rabbit.github.io/tags/development/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <title>快捷手册</title>
+      <link>http://rock-rabbit.github.io/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/development/</guid>
+      <guid>http://rock-rabbit.github.io/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>docs</title>
-      <link>http://rock-rabbit.github.io/tags/docs/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <title>aria2</title>
+      <link>http://rock-rabbit.github.io/tags/aria2/</link>
+      <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/docs/</guid>
+      <guid>http://rock-rabbit.github.io/tags/aria2/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>go</title>
-      <link>http://rock-rabbit.github.io/tags/go/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <title>aria2中文手册</title>
+      <link>http://rock-rabbit.github.io/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</link>
+      <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/go/</guid>
+      <guid>http://rock-rabbit.github.io/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>golang</title>
+      <title>Golang</title>
       <link>http://rock-rabbit.github.io/tags/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>http://rock-rabbit.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>templates</title>
-      <link>http://rock-rabbit.github.io/tags/templates/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <title>Rename</title>
+      <link>http://rock-rabbit.github.io/tags/rename/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/templates/</guid>
+      <guid>http://rock-rabbit.github.io/tags/rename/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>tutorial</title>
-      <link>http://rock-rabbit.github.io/tags/tutorial/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <title>小问题</title>
+      <link>http://rock-rabbit.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/tutorial/</guid>
+      <guid>http://rock-rabbit.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>jekyll</title>
-      <link>http://rock-rabbit.github.io/tags/jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      <title>hugo</title>
+      <link>http://rock-rabbit.github.io/tags/hugo/</link>
+      <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/jekyll/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>test</title>
-      <link>http://rock-rabbit.github.io/tags/test/</link>
-      <pubDate>Thu, 09 Jan 1012 00:00:00 +0000</pubDate>
-      
-      <guid>http://rock-rabbit.github.io/tags/test/</guid>
+      <guid>http://rock-rabbit.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     

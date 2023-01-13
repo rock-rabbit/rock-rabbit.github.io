@@ -1,34 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>golang on rock rabbit</title>
+    <title>Golang on rock rabbit</title>
     <link>http://rock-rabbit.github.io/tags/golang/</link>
-    <description>Recent content in golang on rock rabbit</description>
+    <description>Recent content in Golang on rock rabbit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>(Hu)go Template Primer</title>
-      <link>http://rock-rabbit.github.io/posts/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      <title>golang os.Rename 时出现错误，不能跨磁盘移动文件解决方法！</title>
+      <link>http://rock-rabbit.github.io/posts/golang/file-move/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/posts/goisforlovers/</guid>
-      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>http://rock-rabbit.github.io/posts/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://rock-rabbit.github.io/posts/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+      <guid>http://rock-rabbit.github.io/posts/golang/file-move/</guid>
+      <description>在 windows 下跨卷使用 os.Rename 时会报错：golang cannot move the file to a different disk drive.
+不能直接跨卷/分区使用，可以使用以下方法实现跨卷/分区的文件移动。
+实现逻辑：在目标位置新建一个空文件，使用 io.Copy 拷贝数据到新文件里后，删除源文件。
+// MoveFile 实现跨卷/分区移动文件 func MoveFile(sourcePath, destPath string) error { inputFile, err := os.Open(sourcePath) if err != nil { return fmt.Errorf(&amp;#34;Couldn&amp;#39;t open source file: %s&amp;#34;, err) } outputFile, err := os.Create(destPath) if err != nil { inputFile.Close() return fmt.Errorf(&amp;#34;Couldn&amp;#39;t open dest file: %s&amp;#34;, err) } defer outputFile.Close() _, err = io.Copy(outputFile, inputFile) inputFile.Close() if err !</description>
     </item>
     
   </channel>
