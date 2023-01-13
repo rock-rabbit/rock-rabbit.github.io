@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark" />
+    <title>aria2 中文手册（一）-详细介绍、编译、交叉编译 | 赵登睿的博客 - 济南独立软件开发者</title>
+
+     
+
+    <meta name="keywords" content="rockrabbit,赵登睿,赵登睿博客" />
+    <meta property="og:site_name" content="rockrabbit 的博客，分享技术、成长和生活。" />
+    <meta property="og:title" content="aria2 中文手册（一）-详细介绍、编译、交叉编译" />
+    <meta itemprop="name" content="aria2 中文手册（一）-详细介绍、编译、交叉编译" />
+    <meta name="twitter:title" content="aria2 中文手册（一）-详细介绍、编译、交叉编译" />
+    <meta name="application-name" content="aria2 中文手册（一）-详细介绍、编译、交叉编译" /><meta name="twitter:card" content="summary" />
+
+    <meta name="description"
+        content="aria2 中文手册（一），这里将 aria2 官网和 aria2 开源仓库简介翻译整合成一篇中文手册，提供给想要了解 aria2 的小伙伴。" />
+    <meta name="twitter:description"
+        content="aria2 中文手册（一），这里将 aria2 官网和 aria2 开源仓库简介翻译整合成一篇中文手册，提供给想要了解 aria2 的小伙伴。 " />
+    <meta itemprop="description"
+        content=" aria2 中文手册（一），这里将 aria2 官网和 aria2 开源仓库简介翻译整合成一篇中文手册，提供给想要了解 aria2 的小伙伴。 " />
+    <meta property="og:description"
+        content=" aria2 中文手册（一），这里将 aria2 官网和 aria2 开源仓库简介翻译整合成一篇中文手册，提供给想要了解 aria2 的小伙伴。 " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="rockrabbit" />
+<meta property="og:article:published_time" content=2022-07-04T00:00:00Z />
+<meta property="article:published_time" content=2022-07-04T00:00:00Z />
+
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "aria2 中文手册（一）-详细介绍、编译、交叉编译",
+    "author": {
+      "@type": "Person",
+      "name": "rockrabbit"
+    },
+    "datePublished": "2022-07-04",
+    "description": "aria2 中文手册（一），这里将 aria2 官网和 aria2 开源仓库简介翻译整合成一篇中文手册，提供给想要了解 aria2 的小伙伴。",
+    "wordCount":  1216 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2022-07-04",
+    "publisher": {
+      "@type": "Organization",
+      "name": "rockrabbit",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/www.68wu.cn\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> 
+    <link rel="stylesheet" href="/sass/main.min.13c03f378fb459d5a62a4462b0f5b7fa8d5a865119cf71a64a65d229b594de1f.css" />
+    <script async defer data-website-id="bcde5651-ade7-4690-b15a-0f1e3037f9a8" data-domains="www.68wu.cn"
+    src="https://umami.68wu.cn/umami.js"></script>
+</head>
+    
+    <script>
+        (function() {
+            const colorSchemeKey = 'ThemeColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    <img src="/favicon.ico" />
+                    
+                    rockrabbit 的小屋
+                </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/projects/" >💾 项目</a>
+                
+                <a href="/articles/" >📝 文章</a>
+                
+                
+                <button id="dark-mode-button">
+                    <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                    <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>aria2 中文手册（一）-详细介绍、编译、交叉编译</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            
+                            
+                            作者：rockrabbit | <time>发布日期：2022-07-04</time>
+                            | 阅读时间：6 分钟
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/aria2/">aria2</a>
+                            
+                            <a href="/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/">快捷手册</a>
+                            
+                            <a href="/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/">aria2中文手册</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+        <p>文章信息均来自 aria2 官网：<a href="https://aria2.github.io/">aria2</a> 和 开源仓库：https://github.com/aria2/aria2</p>
+<h3 id="-aria2-是什么">
+    <a href="#-aria2-%e6%98%af%e4%bb%80%e4%b9%88" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    👾 aria2 是什么？
+</h3>
+<ul>
+<li>aria2 是一个<strong>轻量级</strong>、多协议、多数据源的<strong>下载工具</strong>；</li>
+<li>aria2 支持的协议 <strong>HTTP/HTTPS</strong>、<strong>FTP</strong>、<strong>SFTP</strong>、<strong>BitTorrent</strong> 和 <strong>Metalink</strong>；</li>
+<li>aria2 可以从多个来源/协议下载文件，并尝试利用您的最大下载带宽，它支持同时从 HTTP（S）/FTP/SFTP 和 BitTorrent 下载文件，而从 HTTP（S）/FTP/SFTP 下载的数据上传到 BitTorrent 群，可以使用 Metalink 自动验证来自像 BitTorrent 文件这样的数据块；</li>
+<li>aria2 的使用者可以通过内置的 <strong>JSON-RPC</strong> 和 <strong>XML-RPC</strong> 服务进行操作，在操作时可以使用密钥保证操作者是有权限的；</li>
+</ul>
+<h3 id="-下载-aria2-的方法">
+    <a href="#-%e4%b8%8b%e8%bd%bd-aria2-%e7%9a%84%e6%96%b9%e6%b3%95" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    ⬇️ 下载 aria2 的方法
+</h3>
+<p>在 aria2 仓库中发行的版本：<a href="https://github.com/aria2/aria2/releases">aria2 最新发行版</a></p>
+<p>你可以直接下载适用于 Windows 和 Android 的源代码分发和二进制文件。</p>
+<h3 id="-aria2-特点">
+    <a href="#-aria2-%e7%89%b9%e7%82%b9" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    ✨ aria2 特点
+</h3>
+<ul>
+<li>命令行界面</li>
+<li>支持 HTTP（S）、FTP、SFTP 和 BitTorrent 下载文件</li>
+<li>分段下载</li>
+<li>支持 Metalink version 4 （RFC 5854）（HTTP/FTP/SFTP/BitTorrent）</li>
+<li>支持 Metalink version 3.0 （HTTP/FTP/SFTP/BitTorrent）</li>
+<li>支持 Metalink/HTTP (RFC 6249)</li>
+<li>实现 HTTP/1.1</li>
+<li>支持 HTTP 代理</li>
+<li>支持 HTTP Basic Authentication（HTTP基本认证）</li>
+<li>支持 HTTP Proxy authentication（HTTP代理认证）</li>
+<li>支持目前已知的代理环境变量，<code>http_proxy</code> <code>https_proxy</code> <code>ftp_proxy</code> <code>all_proxyno_proxy</code></li>
+<li>支持 HTTP gzip、deflate 内容编码</li>
+<li>支持验证 HTTS 给定的 CA 证书</li>
+<li>支持分块传输编码</li>
+<li>支持从 Firefox3、Chromium、Google Chrome 和 Mozilla / Firefox（1.x / 2.x）/ Netscape格式中获取 Cookie</li>
+<li>支持以 Mozilla/Firefox （1.x/2.x）/Netscape 格式保存 Cookie</li>
+<li>支持自定义 HTTP 标头</li>
+<li>支持持久链接</li>
+<li>支持通过 HTTP 代理的 FTP/SFTP</li>
+<li>限制上传/下载速度</li>
+<li>BitTorrent 扩展：Fast extension, DHT, PEX, MSE/PSE, Multi-Tracker, UDP tracker</li>
+<li>BitTorrent <a href="http://getright.com/seedtorrent.html">WEB-Seeding</a>。aria2 请求大于 piece size 的 chunks 以减少请求开销。它还支持 piece size 的流水线请求。</li>
+<li>BitTorrent Local Peer Discovery</li>
+<li>重命名/更改下载完成的 BitTorrent 目录结构</li>
+<li>支持 JSON-RPC （通过 HTTP 和 WebSocket）/XML-RPC 服务接口</li>
+<li>支持作为守护进程运行</li>
+<li>支持在 multi-file torrent/Metalink 中选择下载</li>
+<li>支持 Metalink 中的块校验和验证</li>
+<li>支持在 Metalink 中禁用分段下载</li>
+<li>支持 Netrc</li>
+<li>支持配置文件</li>
+<li>支持下载在文本文件和 stdin 中获取的 URIs，可以选择指定输出目录和文件名称</li>
+<li>支持 Parameterized URI</li>
+<li>支持 IPV6</li>
+<li>支持 磁盘缓存以减少磁盘使用</li>
+</ul>
+<h3 id="-版本控制和发布计划">
+    <a href="#-%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6%e5%92%8c%e5%8f%91%e5%b8%83%e8%ae%a1%e5%88%92" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🍂 版本控制和发布计划
+</h3>
+<p>我们对 aria2 版本使用 3 段数字：主要.次要.补丁。我们将在每月 15 号发布次要更新，如果自上次发布以来没有任何更改，我们可能会跳过一个版本。</p>
+<p>如果我们遇到安全问题，我们可能会在常规版本之间发布 补丁 版本。</p>
+<p>主要版本号我们暂时停留在 1 上。</p>
+<h3 id="-许可证">
+    <a href="#-%e8%ae%b8%e5%8f%af%e8%af%81" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🦋 <strong><strong>许可证</strong></strong>
+</h3>
+<p>这个程序是自由软件;您可以根据自由软件基金会发布的 GNU 通用公共许可证的条款重新分发和/或修改它;许可证的版本 2，或（由您选择）任何更高版本。</p>
+<h3 id="-使用示例">
+    <a href="#-%e4%bd%bf%e7%94%a8%e7%a4%ba%e4%be%8b" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🐎 使用示例
+</h3>
+<p>命令行吓到你了？不要慌，aria2 真的很容易使用。</p>
+<p>从 WEB 下载文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c http://example.org/mylinux.iso
+</code></pre></td></tr></table>
+</div>
+</div><p>一次性使用不同的协议下载多个文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c http://a/f.iso ftp://b/f.iso
+</code></pre></td></tr></table>
+</div>
+</div><p>每个 Host 使用两个链接下载：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c -x2 http://a/f.iso
+</code></pre></td></tr></table>
+</div>
+</div><p>BitTorrent：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c http://example.org/mylinux.torrent
+</code></pre></td></tr></table>
+</div>
+</div><p>BitTorrent 磁力链接：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c <span class="s1">&#39;magnet:?xt=urn:btih:248D0A1CD08284299DE78D5C1ED359BB46717D8C&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Metalink：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c http://example.org/mylinux.metalink
+</code></pre></td></tr></table>
+</div>
+</div><p>下载文本文件中的 URIs：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">aria2c -i uris.txt
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="怎么获取源代码">
+    <a href="#%e6%80%8e%e4%b9%88%e8%8e%b7%e5%8f%96%e6%ba%90%e4%bb%a3%e7%a0%81" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    怎么获取源代码？
+</h3>
+<p>我们在Github上维护源代码：<a href="https://github.com/aria2/aria2">https://github.com/aria2/aria2</a></p>
+<p>若要获取最新的源代码，请运行以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/aria2/aria2.git
+</code></pre></td></tr></table>
+</div>
+</div><p>这将在当前目录中创建 aria2 目录，源文件将存储在那里。</p>
+<h3 id="依赖">
+    <a href="#%e4%be%9d%e8%b5%96" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    依赖
+</h3>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>依赖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTPS</td>
+<td>OSX or GnuTLS or OpenSSL or Windows</td>
+</tr>
+<tr>
+<td>SFTP</td>
+<td>libssh2</td>
+</tr>
+<tr>
+<td>BitTorrent</td>
+<td>None. Optional: libnettle+libgmp or libgcrypt or OpenSSL (see note)</td>
+</tr>
+<tr>
+<td>Metalink</td>
+<td>libxml2 or Expat.</td>
+</tr>
+<tr>
+<td>Checksum</td>
+<td>None. Optional: OSX or libnettle or libgcrypt or OpenSSL or Windows (see note)</td>
+</tr>
+<tr>
+<td>gzip, deflate in HTTP</td>
+<td>zlib</td>
+</tr>
+<tr>
+<td>Async DNS</td>
+<td>C-Ares</td>
+</tr>
+<tr>
+<td>Firefox3/Chromium cookie</td>
+<td>libsqlite3</td>
+</tr>
+<tr>
+<td>XML-RPC</td>
+<td>libxml2 or Expat.</td>
+</tr>
+<tr>
+<td>JSON-RPC over WebSocket</td>
+<td>libnettle or libgcrypt or OpenSSL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong></p>
+<p>如果安装了两个库，则 libxml2 优先于 Expat。如果您更喜欢 Expat，请运行 <code>--without-libxml2</code></p>
+<p><strong>注意</strong></p>
+<p>在 Apple OSX 上支持系统级的 SSL/TLS。因此，在该平台上既不需要 GNUTL 也不需要 OpenSSL 。如果要禁用此行为，请运行 <code>--without-appletls</code></p>
+<p>如果安装了两个库，则 GnuTLS 优先于 OpenSSL。如果您喜欢 OpenSSL，请运行 <code>--without-gnutls</code> <code>--with-openssl</code></p>
+<p>在 Windows 上，可以使用基于本机 Windows SSL 功能（Schannel）的 SSL 实现，这将是首选。因此，在该平台上既不需要 GNUTL 也不需要 OpenSSL 。如果要禁用此行为，请运行 <code>--without-wintls</code></p>
+<p><strong>注意</strong></p>
+<p>在 Apple OSX 上，系统级校验和支持将是首选，除非 aria2 配置为 <code>--without-appletls</code></p>
+<p>如果安装了两个库，则 libnettle 优先于 libgcrypt。如果您更喜欢 libgcrypt，请运行<code>--without-libnettle --with-libgcrypt</code>。如果在 GNUTL 上选择 OpenSSL，则不会使用 libnettle 或 libgcrypt。</p>
+<p>如果没有安装任何可选依赖项，则将使用仅支持 md5 和 sha1 的内部实现。</p>
+<p>在 Windows 上，可以使用基于本机 Windows 功能的 SSL 实现，除非 aria2 配置为 <code>--without-wintls</code></p>
+<p>用户可以具有以下 SSL 和 crypto libraries 配置之一：</p>
+<ul>
+<li>OpenSSL</li>
+<li>GnuTLS + libgcrypt</li>
+<li>GnuTLS + libnettle</li>
+<li>Apple TLS (OSX only)</li>
+<li>Windows TLS (Windows only)</li>
+</ul>
+<p>在运行时可以提供<code>--disable-bittorrent</code>和 <code>--disable-metalink</code> 来禁用 BitTorrent 和 Metalink 的支持。</p>
+<p>为了启用异步 DNS 支持，你需要 c-ares。</p>
+<ul>
+<li>c-ares: <a href="http://c-ares.haxx.se/">http://c-ares.haxx.se/</a></li>
+</ul>
+<h3 id="如何构建build">
+    <a href="#%e5%a6%82%e4%bd%95%e6%9e%84%e5%bb%babuild" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    如何构建（build）
+</h3>
+<p>aria2 主要用 C++ 编写，最初它是基于 C++98/C++03 标准特性编写的。我们现在正在将 aria2 迁移到 C++11 标准。当前的源代码需要支持 C++11 的编译器。对于众所周知的编译器，例如 g++ 和clang，必须支持 or flag。-std=c++11-std=c++0x</p>
+<p>为了从源软件包构建 aria2，您需要以下开发软件包（软件包名称可能因您使用的发行版而异）：</p>
+<ul>
+<li>libgnutls-dev (Required for HTTPS, BitTorrent, Checksum support)</li>
+<li>nettle-dev (Required for BitTorrent, Checksum support)</li>
+<li>libgmp-dev (Required for BitTorrent)</li>
+<li>libssh2-1-dev (Required for SFTP support)</li>
+<li>libc-ares-dev (Required for async DNS support)</li>
+<li>libxml2-dev (Required for Metalink support)</li>
+<li>zlib1g-dev (Required for gzip, deflate decoding support in HTTP)</li>
+<li>libsqlite3-dev (Required for Firefox3/Chromium cookie support)</li>
+<li>pkg-config (Required to detect installed libraries)</li>
+</ul>
+<p>您可以使用 libgcrypt-dev 而不是 nettle-dev 和 libgmp-dev：</p>
+<ul>
+<li>libgpg-error-dev (Required for BitTorrent, Checksum support)</li>
+<li>libgcrypt-dev (Required for BitTorrent, Checksum support)</li>
+</ul>
+<p>您可以使用 libssl-dev 而不是 libgnutls-dev、nettle-dev、libgmp-dev、libgpg-error-dev 和 libgcrypt-dev：</p>
+<p>• libssl-dev (Required for HTTPS, BitTorrent, Checksum support)</p>
+<p>您可以使用 libexpat1-dev 而不是 libxml2-dev：</p>
+<p>• libexpat1-dev (Required for Metalink support)</p>
+<p>在 Fedora 上，您需要以下软件包：gcc, gcc-c++, kernel-devel, libgcrypt-devel, libxml2-devel, openssl-devel, gettext-devel, cppunit</p>
+<p>如果您从 git 存储库下载了源代码，则必须安装以下软件包才能获得 autoconf macros。</p>
+<ul>
+<li>libxml2-dev</li>
+<li>libcppunit-dev</li>
+<li>autoconf</li>
+<li>automake</li>
+<li>autotools-dev</li>
+<li>autopoint</li>
+<li>libtool</li>
+</ul>
+<p>并运行以下命令以生成配置脚本和生成程序所需的其他文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">autoreconf -i
+</code></pre></td></tr></table>
+</div>
+</div><p>此外，您还需要 <a href="http://sphinx-doc.org/">Sphinx</a> 来构建手册页。</p>
+<p>如果您正在为 Mac OS X 构建 aria2，请查看 makerelease-osx.mk GNU Make makefile。</p>
+<p>构建 aria2 的最快方法是首先运行配置脚本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./configure
+</code></pre></td></tr></table>
+</div>
+</div><p>要构建静态链接的 aria2，请使用命令行选项：<code>ARIA2_STATIC=yes</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./configure <span class="nv">ARIA2_STATIC</span><span class="o">=</span>yes
+</code></pre></td></tr></table>
+</div>
+</div><p>配置完成后，运行编译程序：<code>make</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make
+</code></pre></td></tr></table>
+</div>
+</div><p>请看<a href="https://github.com/aria2/aria2#cross-compiling-windows-binary">交叉编译 Windows 二进制文件</a>来进行 Windows 的交叉编译;</p>
+<p>请看<a href="https://github.com/aria2/aria2#cross-compiling-android-binary">交叉编译 Android 二进制文件</a>来进行 Android 的交叉编译;</p>
+<p><code>configure</code> 会检查可用库并启用尽可能多的功能，在 default 下未启用的实验功能除外。</p>
+<p>从 1.1.0 开始，aria2 默认检查 HTTPS 服务器的证书。如果您使用 OpenSSL 或具有 <code>gnutls_certificate_set_x509_system_trust()</code> 功能的最新版本的 GnuTLS 进行构建，并且库已正确配置以定位系统范围的 CA 证书存储，aria2 将在启动时自动加载这些证书。如果不是这样，我建议提供 CA 包文件的路径，例如在Debian中，CA 捆绑文件的路径是 &lsquo;/etc/ssl/certs/ca-certificates.crt&rsquo; (in ca-certificates package)，这可能因您的发行版本而异，您可以使用 configure 的 <code>--with-ca-bundle option</code> :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./configure --with-ca-bundle<span class="o">=</span><span class="s1">&#39;/etc/ssl/certs/ca-certificates.crt&#39;</span>
+make
+</code></pre></td></tr></table>
+</div>
+</div><p>如果没有 <code>--with-ca-bundle</code> 选项，则在访问 HTTPS 服务器时会遇到错误，因为没有 CA bundle 无法验证证书。在这种情况下，可以使用 aria2 的 <code>--ca-certificate</code> 指定 CA 捆绑文件。如果没有安装 CA bundle 文件，那么最后一种方法是使用 <code>--check-certificate=false</code> 禁用证书验证。</p>
+<p>使用本机 OSX（AppleTLS）和 / 或 Windows（WinTLS）实现将自动使用系统证书存储，因此，不需要使用 -with-ca-bundle，在使用这些实现时将被忽略。</p>
+<p>默认情况下 aria2c 安装在名为 bash_completion 的目录中，其位置在 $prefix/share/doc/aria2/bash_completion。要更改文件的安装目录，请使用 <code>--with-bashcompletiondir</code> 选项。</p>
+<p><code>make</code> 后，可执行文件位于src/aria2c。</p>
+<p>aria2 使用 CppUnit 进行自动单元测试。要运行单元测试：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make check
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="交叉编译-windows-二进制文件">
+    <a href="#%e4%ba%a4%e5%8f%89%e7%bc%96%e8%af%91-windows-%e4%ba%8c%e8%bf%9b%e5%88%b6%e6%96%87%e4%bb%b6" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    交叉编译 Windows 二进制文件
+</h3>
+<p>在本节中，我们将介绍如何在 Debian Linux 上使用 mingw-w64 （<a href="http://mingw-w64.org/doku.php">http://mingw-w64.org/doku.php</a>
+） 交叉编译器构建 Windows 二进制文件，MinGW（<a href="http://www.mingw.org/">http://www.mingw.org/</a>
+）可能无法 aria2。</p>
+<p>构建 Windows 二进制文件的最简单方法是使用 Dockerfile，请参考 Dockerfile.mingw 来构建二进制文件，如果您不能使用 Dockerfile 请继续阅读以下内容。</p>
+<p>基本上，在编译和安装依赖库之后，您可以进行交叉编译，只需传递适当的 <code>--host</code> 选项并指定要配置的 <code>CPPFLAGS</code> <code>LDFLAGS</code> <code>PKG_CONFIG_LIBDIR</code> 变量。为了方便和降低我们自己的开发成本，我们提供了更简单的方法来配置构建设置。</p>
+<p><code>mingw-config</code> 脚本是用于 mingw-w64 的 configure 脚本包装器。我们使用它来创建正式的 Windows 版本。此脚本假设已为交叉编译构建以下库：</p>
+<ul>
+<li>c-ares</li>
+<li>expat</li>
+<li>sqlite3</li>
+<li>zlib</li>
+<li>libssh2</li>
+<li>cppunit</li>
+</ul>
+<p>可以调整某些环境变量以更改生成设置：</p>
+<p><em><strong>HOST</strong></em></p>
+<p>通过 HOST 环境变量可以编译为 HOST 指定的系统，它默认为 <code>i686-w64-mingw32</code> ，要生成64位二进制文件，请指定为 <code>x86_64-w64-mingw32</code> 。</p>
+<p><em><strong>PREFIX</strong></em></p>
+<p>PREFIX 是安装依赖库的目录的前缀，默认为 <code>/usr/local/$HOST</code> ，<code>I$PREFIX/include</code> 将添加到 <code>CPPFLAGS</code> ，<code>L$PREFIX/lib</code> 将添加到 <code>LDFLAGS</code> ，<code>$PREFIX/lib/pkgconfig</code> 将添加到 <code>PKG_CONFIG_LIBDIR</code> 。</p>
+<p>例如，要构建64位二进制文件，请执行以下操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">HOST</span><span class="o">=</span>x86_64-w64-mingw32 ./mingw-config
+</code></pre></td></tr></table>
+</div>
+</div><p>如果您想使用 libaria2 dll  可以指定 <code>--enable-libaria2</code> ，然后不要使用 <code>ARIA2_STATIC=yes</code> 并准备外部库的 DLL 版本。</p>
+<h3 id="交叉编译-android-二进制文件">
+    <a href="#%e4%ba%a4%e5%8f%89%e7%bc%96%e8%af%91-android-%e4%ba%8c%e8%bf%9b%e5%88%b6%e6%96%87%e4%bb%b6" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    <strong><strong>交叉编译 Android 二进制文件</strong></strong>
+</h3>
+<p>在本节中，我们将介绍如何在 Debian Linux 上使用 Android NDK 交叉编译器构建 Android 二进制文件。</p>
+<p>在撰写本文时，Android NDK r21e 应该可以无误的编译 aria2。</p>
+<p><code>android-config</code> 脚本是 Android build 的配置脚本包装器，我们用它来创建正式的 Android 版本，此脚本假设已为交叉编译构建以下库：</p>
+<ul>
+<li>c-ares</li>
+<li>openssl</li>
+<li>expat</li>
+<li>zlib</li>
+<li>libssh2</li>
+</ul>
+<p>在构建上述库时，请确保禁用共享库并仅启用静态库，我们将静态链接这些库。</p>
+<p><code>android-config</code> 假设定义了 $ANDROID_HOME 和 $NDK 环境变量。</p>
+<p>我们目前使用 Android NDK r21e，$NDK 应指向 Anroid NDK 的目录，构建工具位于 <code>$NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/</code> 。</p>
+<p>所有依赖库必须安装在 <code>$ANDROID_HOME/usr/local</code> 。</p>
+<p>在 <code>android-config</code> 之后，运行 make 编译源代码。</p>
+<h3 id="构建文档">
+    <a href="#%e6%9e%84%e5%bb%ba%e6%96%87%e6%a1%a3" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    构建文档
+</h3>
+<p><a href="http://sphinx-doc.org/">Sphinx</a> 用于构建文档。如果 aria2 手册页不是最新的，则会在运行 <code>make</code> 时生成。您还可以通过生成 HTML 来构建 aria2 手册页的 HTML 版本。HTML 版本手册也可<a href="https://aria2.github.io/manual/en/html/">在线获取</a>（<a href="https://aria2.github.io/manual/ru/html/">俄语翻译</a>、<a href="https://aria2.github.io/manual/pt/html/">葡萄牙语翻译</a>）。</p>
+<h3 id="bittorrent">
+    <a href="#bittorrent" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    <strong><strong>BitTorrent</strong></strong>
+</h3>
+<p><strong>关于文件名</strong></p>
+<p>下载文件的文件名确定如下：</p>
+<ul>
+<li><strong>单文件模式</strong></li>
+</ul>
+<p>如果 “name” 键存在于 .torrent 文件中，则文件名是 “name” 键的值。</p>
+<p>否则，文件名就是 BitTorrent 的文件名称加上 “.file” ，例如 BitTorrent 的文件名称是 “test.torrent”，那么下载的文件名就是 “test.torrent.file”，下载文件的目录可以通过 -d 选项指定。</p>
+<ul>
+<li>多<strong>文件模式</strong></li>
+</ul>
+<p>.torrent 文件内部已存在目录结构，所以 aira2 直接按照已有的结构创建文件和目录，下载文件的根目录可以通过 -d 选项指定。</p>
+<p>在下载开始之前，如果需要，将创建一个完整的目录结构。</p>
+<p>默认情况下 aria2 最多从 .torrent 中同时打开 100 个文件，并直接写入和读取这些文件。</p>
+<p>要修改 aria2 同时打开文件的数量，请指定 <code>--bt-max-open-files</code> 选项。</p>
+<h3 id="dht">
+    <a href="#dht" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    <strong><strong>DHT</strong></strong>
+</h3>
+<p>aria2 支持与主线兼容的DHT。</p>
+<p>默认情况下，IPv4 DHT的路由表保存到 <code>$XDG_CACHE_HOME/aria2/dht.dat</code>，dat 和 IPv6 DHT 的路由表保存到 <code>$XDG_CACHE_HOME/aria2/dht6.dat</code>。除非文件存在于 <code>$HOME/.aria2/dht.dat</code> or <code>$HOME/.aria2/dht6.dat</code> 。</p>
+<p>aria2 使用相同的端口号侦听 IPv4 和 IPv6 DHT。</p>
+<h3 id="udp-tracker">
+    <a href="#udp-tracker" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    UDP tracker
+</h3>
+<p>启用 IPv4 DHT 时，将启用 UDP 跟踪器支持。UDP 跟踪器的端口号与 DHT 共享。</p>
+<p>使用 <code>--dht-listen-port</code> 选项更改端口号。</p>
+<h3 id="metalink">
+    <a href="#metalink" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Metalink
+</h3>
+<p>当前的实现支持 HTTP（S）/FTP/SFTP/BitTorrent，其他 P2P 协议被忽略，支持 Metalink4（RFC 5854）和 Metalink 3.0 版文档。</p>
+<p>对于校验和验证，支持 md5、sha-1、sha-224、sha-256、sha-384 和 sha-512，如果提供了多个哈希算法，aria2 将使用更强的哈希算法，如果整个文件校验和验证失败，aria2 不会重试下载，只会以非零返回代码退出。</p>
+<p>支持用户的首选项包括：version, language, location, protocol and os。</p>
+<p>如果 Metalink 文件中提供了块校验和，aria2 会在下载过程中自动验证数据块，此行为可以通过命令行选项关闭。</p>
+<p>如果签名包含在 Metalink 文件中，aria2 会在下载完成后将其保存为文件，文件名为下载文件名+“.sig”。如果同一文件已存在，则不会保存签名文件。</p>
+<p>在 Metalink4 中，多文件 torrent 可能出现在 metalink:metaurl 元素中，由于 aria2 无法同时下载两个相同的 Torrent，aria2 将文件分组在 metalink 中：文件元素具有相同的 BitTorrent metaurl，并从单个 BitTorrent swarm 下载。</p>
+<p>这基本上是带有文件选择的多文件 torrent 下载，因此也会创建不在 Metalink 文档中但与所选文件共享同一部分的相邻文件。</p>
+<p>如果在 metalink:url 或 metalink:metaurl 元素中指定了相对 URI，则 aria2 使用 metalink 文件的 URI 作为基本 URI 来解析相对 URI。如果在从本地磁盘读取的 Metalink 文件中找到相对 URI，则 aria2 使用 <code>--metalink-base-uri</code> 选项的值作为基本 URI。如果未指定此选项，则将忽略相对 URI。</p>
+<h3 id="metalinkhttp">
+    <a href="#metalinkhttp" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    Metalink/HTTP
+</h3>
+<p>Metalink/HTTP 的实现仅限于 rel=duplicate 的链接。</p>
+<p>aria2 解析 Digest header 字段，并检查它是否与其他来源的 digest 值匹配。如果不同，就断开连接，aria2 还使用此 Digest 值在下载完成后执行校验和验证。</p>
+<p>让 aria2 知道优先使用的 <code>metalink</code> 地址，可以使用 <code>--metalink-location</code> 选项。</p>
+<h3 id="netrc">
+    <a href="#netrc" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    netrc
+</h3>
+<p>默认情况下，HTTP/FTP/SFTP 支持 netrc，要禁用 netrc 支持，请指定 -n 命令行选项</p>
+<p>你的 netrc 文件应具有相应的权限：（600）。</p>
+<h3 id="websocket">
+    <a href="#websocket" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    WebSocket
+</h3>
+<p>aria2 中嵌入的 WebSocket 服务器实现了 RFC 6455 中定义的规范。支持的协议版本为 13。</p>
+<h3 id="libaria2">
+    <a href="#libaria2" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    libaria2
+</h3>
+<p>libaria2 是一个 C++ 库，它为客户端的开发提供 aria2 功能。</p>
+<p>目前，libaria2 不是默认构建的，要启用 libaria2，请使用 <code>--enable-libaria2</code> 配置选项。</p>
+<p>默认情况下，只生成共享库，要构建静态库，还可以使用 <code>--enable-static</code> 配置选项。</p>
+<p>了解如何使用API，请参阅 libaria2 文档。</p>
+<h3 id="aria2-开发时的参考">
+    <a href="#aria2-%e5%bc%80%e5%8f%91%e6%97%b6%e7%9a%84%e5%8f%82%e8%80%83" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    aria2 开发时的参考
+</h3>
+<ul>
+<li><a href="https://aria2.github.io/manual/en/html/">aria2 Online Manual</a></li>
+<li><a href="https://aria2.github.io/">https://aria2.github.io/</a></li>
+<li><a href="http://tools.ietf.org/html/rfc959">RFC 959 FILE TRANSFER PROTOCOL (FTP)</a></li>
+<li><a href="http://tools.ietf.org/html/rfc1738">RFC 1738 Uniform Resource Locators (URL)</a></li>
+<li><a href="http://tools.ietf.org/html/rfc2428">RFC 2428 FTP Extensions for IPv6 and NATs</a></li>
+<li><a href="http://tools.ietf.org/html/rfc2616">RFC 2616 Hypertext Transfer Protocol &ndash; HTTP/1.1</a></li>
+<li><a href="http://tools.ietf.org/html/rfc3659">RFC 3659 Extensions to FTP</a></li>
+<li><a href="http://tools.ietf.org/html/rfc3986">RFC 3986 Uniform Resource Identifier (URI): Generic Syntax</a></li>
+<li><a href="http://tools.ietf.org/html/rfc4038">RFC 4038 Application Aspects of IPv6 Transition</a></li>
+<li><a href="http://tools.ietf.org/html/rfc5854">RFC 5854 The Metalink Download Description Format</a></li>
+<li><a href="http://tools.ietf.org/html/rfc6249">RFC 6249 Metalink/HTTP: Mirrors and Hashes</a></li>
+<li><a href="http://tools.ietf.org/html/rfc6265">RFC 6265 HTTP State Management Mechanism</a></li>
+<li><a href="http://tools.ietf.org/html/rfc6266">RFC 6266 Use of the Content-Disposition Header Field in the Hypertext Transfer Protocol (HTTP)</a></li>
+<li><a href="http://tools.ietf.org/html/rfc6455">RFC 6455 The WebSocket Protocol</a></li>
+<li><a href="http://tools.ietf.org/html/rfc6555">RFC 6555 Happy Eyeballs: Success with Dual-Stack Hosts</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0003.html">The BitTorrent Protocol Specification</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0005.html">BitTorrent: DHT Protocol</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0006.html">BitTorrent: Fast Extension</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0007.html">BitTorrent: IPv6 Tracker Extension</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0009.html">BitTorrent: Extension for Peers to Send Metadata Files</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0010.html">BitTorrent: Extension Protocol</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0012.html">BitTorrent: Multitracker Metadata Extension</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0015.html">BitTorrent: UDP Tracker Protocol for BitTorrent</a> and <a href="http://www.rasterbar.com/products/libtorrent/udp_tracker_protocol.html">BitTorrent udp-tracker protocol specification</a>.</li>
+<li><a href="http://www.bittorrent.org/beps/bep_0019.html">BitTorrent: WebSeed - HTTP/FTP Seeding (GetRight style)</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0027.html">BitTorrent: Private Torrents</a></li>
+<li><a href="http://www.bittorrent.org/beps/bep_0032.html">BitTorrent: BitTorrent DHT Extensions for IPv6</a></li>
+<li><a href="http://wiki.vuze.com/w/Message_Stream_Encryption">BitTorrent: Message Stream Encryption</a></li>
+<li><a href="https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf">Kademlia: A Peer-to-peer Information System Based on the XOR Metric</a></li>
+</ul>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/golang/file-move/" title="golang os.Rename 时出现错误，不能跨磁盘移动文件解决方法！">
+            <span>上一篇</span>
+            golang os.Rename 时出现错误，不能跨磁盘移动文件解决方法！
+        </a>
+        
+
+        
+        <a rel="next" href="/post/mysql/mysql8-new-features/" title="MySQL8 的新特性：NoSQL、索引、账户管理、窗口函数...">
+            <span>下一篇</span>
+            MySQL8 的新特性：NoSQL、索引、账户管理、窗口函数...
+        </a>
+        
+    </nav>
+    
+</div>
+
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+            <a href="https://beian.miit.gov.cn/">冀ICP备20017556号-1</a>
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>

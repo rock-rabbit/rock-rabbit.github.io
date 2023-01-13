@@ -2,81 +2,89 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://rock-rabbit.github.io/categories/</loc>
+    <loc>https://www.68wu.cn/project/mardown/</loc>
+    <lastmod>2022-05-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.68wu.cn/categories/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/posts/</loc>
+    <loc>https://www.68wu.cn/post/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/</loc>
+    <loc>https://www.68wu.cn/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/</loc>
+    <loc>https://www.68wu.cn/tags/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/umami/</loc>
+    <loc>https://www.68wu.cn/tags/umami/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/posts/tool/umami/</loc>
+    <loc>https://www.68wu.cn/post/tool/umami/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://www.68wu.cn/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://www.68wu.cn/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-07-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/mysql/</loc>
+    <loc>https://www.68wu.cn/tags/mysql/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/categories/mysql/</loc>
+    <loc>https://www.68wu.cn/categories/mysql/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/posts/mysql/mysql8-windows-install/</loc>
+    <loc>https://www.68wu.cn/post/mysql/mysql8-windows-install/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/posts/mysql/mysql8-new-features/</loc>
+    <loc>https://www.68wu.cn/post/mysql/mysql8-new-features/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</loc>
+    <loc>https://www.68wu.cn/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/aria2/</loc>
+    <loc>https://www.68wu.cn/tags/aria2/</loc>
     <lastmod>2022-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/posts/aria2/aria2-chinese-manual-1/</loc>
+    <loc>https://www.68wu.cn/post/aria2/aria2-chinese-manual-1/</loc>
     <lastmod>2022-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</loc>
+    <loc>https://www.68wu.cn/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2022-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/categories/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</loc>
+    <loc>https://www.68wu.cn/categories/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2022-07-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/golang/</loc>
+    <loc>https://www.68wu.cn/tags/golang/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/categories/golang/</loc>
+    <loc>https://www.68wu.cn/categories/golang/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/posts/golang/file-move/</loc>
+    <loc>https://www.68wu.cn/post/golang/file-move/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/rename/</loc>
+    <loc>https://www.68wu.cn/tags/rename/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://www.68wu.cn/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/categories/hugo/</loc>
+    <loc>https://www.68wu.cn/categories/hugo/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/tags/hugo/</loc>
+    <loc>https://www.68wu.cn/tags/hugo/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/posts/hugo/front-matter/</loc>
+    <loc>https://www.68wu.cn/post/hugo/front-matter/</loc>
     <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://rock-rabbit.github.io/about/</loc>
+    <loc>https://www.68wu.cn/project/</loc>
+    <lastmod>2022-05-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.68wu.cn/articles/</loc>
+  </url><url>
+    <loc>https://www.68wu.cn/projects/</loc>
   </url>
 </urlset>

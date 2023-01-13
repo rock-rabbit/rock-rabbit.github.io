@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on rock rabbit</title>
-    <link>http://rock-rabbit.github.io/categories/</link>
-    <description>Recent content in Categories on rock rabbit</description>
+    <title>Categories on rockrabbit的小屋</title>
+    <link>https://www.68wu.cn/categories/</link>
+    <description>Recent content in Categories on rockrabbit的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>工具</title>
-      <link>http://rock-rabbit.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+      <link>https://www.68wu.cn/categories/%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://www.68wu.cn/categories/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mysql</title>
-      <link>http://rock-rabbit.github.io/categories/mysql/</link>
+      <link>https://www.68wu.cn/categories/mysql/</link>
       <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/categories/mysql/</guid>
+      <guid>https://www.68wu.cn/categories/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aria2中文手册</title>
-      <link>http://rock-rabbit.github.io/categories/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</link>
+      <link>https://www.68wu.cn/categories/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</link>
       <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/categories/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</guid>
+      <guid>https://www.68wu.cn/categories/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://rock-rabbit.github.io/categories/golang/</link>
+      <link>https://www.68wu.cn/categories/golang/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/categories/golang/</guid>
+      <guid>https://www.68wu.cn/categories/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>http://rock-rabbit.github.io/categories/hugo/</link>
+      <link>https://www.68wu.cn/categories/hugo/</link>
       <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/categories/hugo/</guid>
+      <guid>https://www.68wu.cn/categories/hugo/</guid>
       <description></description>
     </item>
     

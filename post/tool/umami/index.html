@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark" />
+    <title>Umami 一款简单的网站流量分析平台 | 赵登睿的博客 - 济南独立软件开发者</title>
+
+     
+
+    <meta name="keywords" content="rockrabbit,赵登睿,赵登睿博客" />
+    <meta property="og:site_name" content="rockrabbit 的博客，分享技术、成长和生活。" />
+    <meta property="og:title" content="Umami 一款简单的网站流量分析平台" />
+    <meta itemprop="name" content="Umami 一款简单的网站流量分析平台" />
+    <meta name="twitter:title" content="Umami 一款简单的网站流量分析平台" />
+    <meta name="application-name" content="Umami 一款简单的网站流量分析平台" /><meta name="twitter:card" content="summary" />
+
+    <meta name="description"
+        content="Umami 是一个简单、易于使用、自托管的网络分析解决方案，目标是为你提供一个更友好、注重隐私的网站流量分析平台。" />
+    <meta name="twitter:description"
+        content="Umami 是一个简单、易于使用、自托管的网络分析解决方案，目标是为你提供一个更友好、注重隐私的网站流量分析平台。 " />
+    <meta itemprop="description"
+        content=" Umami 是一个简单、易于使用、自托管的网络分析解决方案，目标是为你提供一个更友好、注重隐私的网站流量分析平台。 " />
+    <meta property="og:description"
+        content=" Umami 是一个简单、易于使用、自托管的网络分析解决方案，目标是为你提供一个更友好、注重隐私的网站流量分析平台。 " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="rockrabbit" />
+<meta property="og:article:published_time" content=2022-07-06T00:00:00Z />
+<meta property="article:published_time" content=2022-07-06T00:00:00Z />
+
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Umami 一款简单的网站流量分析平台",
+    "author": {
+      "@type": "Person",
+      "name": "rockrabbit"
+    },
+    "datePublished": "2022-07-06",
+    "description": "Umami 是一个简单、易于使用、自托管的网络分析解决方案，目标是为你提供一个更友好、注重隐私的网站流量分析平台。",
+    "wordCount":  687 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2022-07-06",
+    "publisher": {
+      "@type": "Organization",
+      "name": "rockrabbit",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/www.68wu.cn\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> 
+    <link rel="stylesheet" href="/sass/main.min.13c03f378fb459d5a62a4462b0f5b7fa8d5a865119cf71a64a65d229b594de1f.css" />
+    <script async defer data-website-id="bcde5651-ade7-4690-b15a-0f1e3037f9a8" data-domains="www.68wu.cn"
+    src="https://umami.68wu.cn/umami.js"></script>
+</head>
+    
+    <script>
+        (function() {
+            const colorSchemeKey = 'ThemeColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    <img src="/favicon.ico" />
+                    
+                    rockrabbit 的小屋
+                </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/projects/" >💾 项目</a>
+                
+                <a href="/articles/" >📝 文章</a>
+                
+                
+                <button id="dark-mode-button">
+                    <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                    <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Umami 一款简单的网站流量分析平台</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            
+                            
+                            作者：rockrabbit | <time>发布日期：2022-07-06</time>
+                            | 阅读时间：4 分钟
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+                            
+                            <a href="/tags/umami/">Umami</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+        <h3 id="-umami-鲜味">
+    <a href="#-umami-%e9%b2%9c%e5%91%b3" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🥣 Umami （鲜味）
+</h3>
+<p>Umami 是一个简单、易于使用、自托管的网络分析解决方案。</p>
+<p>目标是为你提供一个更友好、注重隐私的 Google Analytics 替代方案，以及一个免费、开源的付费解决方案替代方案。Umami 只收集你关心的指标，所有内容都放在一个页面上。<a href="https://app.umami.is/share/ISgW2qz8/flightphp.com">你可以在此处</a>查看现场演示。</p>
+<p><strong>推荐使用 Umami 的原因？</strong></p>
+<p>在国内有一款非常有名的网站流量分析平台：<a href="https://www.umeng.com/">友盟（cnzz）</a>，为什么我不推荐使用它？因为友盟多次暴露出它会在免费使用它的网页中插入广告，导致我不再信任它。</p>
+<p>Umami 是开源的自建平台、安全、稳定，小巧，使用 Umami 就可以避免友盟这种事件的发生。</p>
+<p>它对于开发者来说是非常好搭建和使用的，因为它支持 docker。</p>
+<p>官网：<a href="https://umami.is/">https://umami.is</a></p>
+<p>Umami 支持多国语言，包括简体中文、繁体中文等等。</p>
+<p><img loading="lazy" 
+    src="/umami/02.png" 
+    alt="umami界面" 
+     
+    width=1188 
+    height="918"  /></p>
+<h3 id="-umami-特点">
+    <a href="#-umami-%e7%89%b9%e7%82%b9" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    ✨ Umami 特点
+</h3>
+<ul>
+<li><strong>简洁的分析</strong>：Umami 仅衡量你关心的重要指标：<code>网页浏览量</code>、<code>使用的设备</code>以及<code>访问者的来源</code>。所有内容都显示在一个易于浏览的页面上。</li>
+<li><strong>不限网站数量</strong>：Umami 能够一次安装就跟踪无限数量的网站。你甚至可以跟踪子域和单个 URL。</li>
+<li><strong>绕过广告拦截器</strong>：Umami 由你在自己的域名下托管，因此你可以有效的避免与 Google Analytics 不同的广告拦截程序。</li>
+<li><strong>体积小</strong>：跟踪脚本很小（只有 2KB），支持 IE 等传统浏览器。</li>
+<li><strong>多账户</strong>：Umami 可以用来为朋友或客户托管数据。只需创建一个单独的帐户，他们就可以开始在自己的仪表板上跟踪自己的网站。</li>
+<li><strong>数据公开</strong>：如果你想公开分享你的统计数据，Umami 可以为你唯一生成一个 URL。</li>
+<li><strong>手机友好</strong>：Umami 界面针对移动设备进行了优化，因此你可以在任何地方查看你的统计数据。</li>
+<li><strong>数据所有权</strong>：因为 Umami 是自托管的，所以你拥有所有数据。无需将数据交给第三方进行利用。</li>
+<li><strong>以隐私为中心</strong>：Umami 不收集任何个人身份信息，并对收集的所有数据进行匿名。</li>
+<li><strong>开源</strong>：Umami 是开源的，并根据 MIT 许可证获得许可。源代码可在 Github 上获得。</li>
+</ul>
+<h3 id="-umami-环境要求">
+    <a href="#-umami-%e7%8e%af%e5%a2%83%e8%a6%81%e6%b1%82" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    ☘️ Umami 环境要求
+</h3>
+<ul>
+<li>装有 Node.js 12 或更高版本</li>
+<li>数据库：Umami 支持 <a href="https://www.mysql.com/">MySQL</a> 和 <a href="https://www.postgresql.org/">Postgresql</a> 数据库</li>
+<li>MySQL 数据库最低要求 5.7</li>
+</ul>
+<h3 id="-在-windows-安装">
+    <a href="#-%e5%9c%a8-windows-%e5%ae%89%e8%a3%85" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🖥 在 windows 安装
+</h3>
+<p>如果你需要在 windows 安装 mysql 的教程请访问：<a href="https://www.68wu.cn/post/mysql/mysql8-windows-install/">传送门</a></p>
+<p>#1 获取源代码并安装软件包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/mikecao/umami.git
+<span class="nb">cd</span> umami
+yarn install
+</code></pre></td></tr></table>
+</div>
+</div><p>#2 配置 Umami</p>
+<p>使用以下内容创建文件 <code>.env</code> ，是不包含括号的哦 🖐️</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">DATABASE_URL</span><span class="o">=(</span>connection url<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>连接 URL 采用以下格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">postgresql://username:mypassword@localhost:5432/mydb
+
+mysql://username:mypassword@localhost:3306/mydb
+</code></pre></td></tr></table>
+</div>
+</div><p>#3 构建应用程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yarn build
+</code></pre></td></tr></table>
+</div>
+</div><p>#4 创建数据库表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yarn update-db
+</code></pre></td></tr></table>
+</div>
+</div><p>这会创建一个初始账户：admin 和密码：umami</p>
+<p>#5 启动应用程序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yarn start
+</code></pre></td></tr></table>
+</div>
+</div><p>默认情况下，启动完成后你可以直接访问 http://localhost:3000 ，你想改变运行端口你可以修改 <code>package.json</code> 文件，如下：</p>
+<p><img loading="lazy" 
+    src="/umami/01.png" 
+    alt="umami修改启动端口" 
+     
+    width=720 
+    height="462"  /></p>
+<p>在 <code>start-next</code> 键内容后面添加  <code>-p 2157</code> 就可以把启动端口改为 2157。这其实是 next 的用法，其他用法请参考 next 手册：<a href="https://nextjs.org/docs/api-reference/cli#production">传送门</a></p>
+<p>如果你想使用域名来访问 umami 服务，可以参考 nginx 的 proxy 功能：<a href="https://nextjs.org/docs/api-reference/cli#production">传送门</a></p>
+<h3 id="-在-docker-安装">
+    <a href="#-%e5%9c%a8-docker-%e5%ae%89%e8%a3%85" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🐳 在 docker 安装
+</h3>
+<p>要构建 Umami 容器并启动 Postgres 数据库，请运行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker-compose up
+</code></pre></td></tr></table>
+</div>
+</div><p>或者，只提取支持 PostgreSQL 的 Umami Docker 映像：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull ghcr.io/mikecao/umami:postgresql-latest
+</code></pre></td></tr></table>
+</div>
+</div><p>或者使用支持 MySQL 的映像：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull ghcr.io/mikecao/umami:mysql-latest
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="-umami-常见问题">
+    <a href="#-umami-%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    📚 Umami 常见问题
+</h3>
+<p><strong>1、Umami 是否符合 GDPR 标准？</strong></p>
+<p>是符合的，Umami 不会收集任何个人身份信息，并且会匿名化收集所有数据。用户无法识别，也永远不会跨网站跟踪。</p>
+<p><strong>2、我是否需要向用户显示 Cookie 通知？</strong></p>
+<p>不，Umami 在跟踪代码中不使用任何 Cookie。</p>
+<p><strong>3、Umami 是否适用于单页应用程序 （SPA）？</strong></p>
+<p>是可以的，Umami 可以在 SPA 和普通网站之间无缝工作。</p>
+<p><strong>4、Umami 可以记录按钮点击等事件吗？</strong></p>
+<p>是的，请参阅 “入门” 下的 <a href="https://umami.is/docs/track-events">track-events</a>。</p>
+<p><strong>5、如果我遇到问题或想要请求功能，可以去哪里寻求帮助？</strong></p>
+<p>对于一般讨论和故障排除，你可以使用 Github 上的<a href="https://github.com/mikecao/umami/discussions">讨论</a>。</p>
+<p>有关错误报告和功能请求，请在 GitHub 上<a href="https://github.com/mikecao/umami/issues">提交问题</a>。</p>
+<p>为了获得最大的乐趣，请在<a href="https://discord.gg/4dz4zcXYrQ">Discord</a>上加入 Umami 社区！</p>
+<h3 id="-umami-的技术栈">
+    <a href="#-umami-%e7%9a%84%e6%8a%80%e6%9c%af%e6%a0%88" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🧩 Umami 的技术栈
+</h3>
+<ul>
+<li><a href="https://reactjs.org/">React</a> - UI 框架</li>
+<li><a href="https://nextjs.org/">Next.js</a> - React 框架</li>
+<li><a href="https://www.prisma.io/">Prisma.io</a> - 现代数据库访问工具包</li>
+<li><a href="https://www.chartjs.org/">Chart.js</a> - 为设计师和开发人员提供简单而灵活的 JavaScript 图表</li>
+<li><a href="https://redux.js.org/">Redux</a> - 用于 JS 应用程序的可预测状态容器</li>
+<li><a href="https://formik.org/">Formik</a> -React 表单管理</li>
+<li><a href="https://www.react-spring.io/">react-spring</a> - React 动画库</li>
+</ul>
+<h3 id="-umami-的更新">
+    <a href="#-umami-%e7%9a%84%e6%9b%b4%e6%96%b0" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    💫 Umami 的更新
+</h3>
+<p>为了获取最新的更新，请首先从 git 存储库中提取更改：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git pull
+</code></pre></td></tr></table>
+</div>
+</div><p>然后安装任何新的或更新的依赖项：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm install
+</code></pre></td></tr></table>
+</div>
+</div><p>重新生成项目：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm run build
+</code></pre></td></tr></table>
+</div>
+</div><p>最后，启动应用程序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm run start
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="-跟踪事件">
+    <a href="#-%e8%b7%9f%e8%b8%aa%e4%ba%8b%e4%bb%b6" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    👏 跟踪事件
+</h3>
+<p>除了页面浏览量，Umami 还可以跟踪网站上发生的事件。在 Umami 中记录事件有两种方法，使用 CSS 类或使用 Javascript。</p>
+<p><strong>#1 使用 CSS 类</strong></p>
+<p>要启用事件，只需向要跟踪的元素添加一个特殊的 CSS 类。</p>
+<p>假如你的代码中有如下按钮，需要添加跟踪事件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signup-button&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;button&#34;</span><span class="p">&gt;</span>Sign up<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加以下格式的 <strong>class</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">umami--<span class="p">&lt;</span><span class="nt">event</span><span class="p">&gt;</span>--<span class="p">&lt;</span><span class="nt">event-name</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加 <strong>class</strong> 后你的按钮就变成了下面这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;signup-button&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;button umami--click--signup-button&#34;</span><span class="p">&gt;</span>Sign up<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当用户单击此按钮时，Umami 将记录一个名为 <code>signup-button</code> 的事件，事件类型为 <code>click</code>。</p>
+<p>事件可以是任何可以应用于元素的 Javascript 事件。</p>
+<p><strong>注意</strong>不要附加到任何连续触发的事件，如 <code>scroll</code> 和 <code>drag</code>。</p>
+<p><strong>#2 使用 Javascript</strong></p>
+<p>你还可以使用 <code>window.umami</code> 对象手动记录事件。要完成与上述 CSS 方法相同的任务，你可以执行以下操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;signup-button&#39;</span><span class="p">);</span>
+
+<span class="nx">button</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">umami</span><span class="p">(</span><span class="s1">&#39;Signup button click&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这种情况下，Umami 将记录名为 <code>Signup button click</code> 的事件，事件类型为 custom。</p>
+<p>如果要使用自己的事件类型而不是 custom，请参阅 <a href="#-%E8%B7%9F%E8%B8%AA%E5%99%A8%E5%8A%9F%E8%83%BD">Tracker 函数</a>。</p>
+<p><strong>#3 查看事件</strong></p>
+<p>一旦你的活动被记录下来，它们将出现在你的网站详细信息页面上。</p>
+<p><img loading="lazy" 
+    src="/umami/events.png" 
+    alt="umami事件" 
+     
+    width=800 
+    height="347"  /></p>
+<h3 id="-跟踪器配置">
+    <a href="#-%e8%b7%9f%e8%b8%aa%e5%99%a8%e9%85%8d%e7%bd%ae" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🕶 <strong>跟踪器配置</strong>
+</h3>
+<p>Umami 跟踪器提供了几个属性，允许你配置其行为。</p>
+<p><strong>#1 data-host-url</strong></p>
+<p>默认情况下，Umami 会将数据发送到脚本所在的任何位置。你可以覆盖此选项以将数据发送到其他位置。</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">defer</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://mywebsite/umami.js&#34;</span>
+  <span class="na">data-website-id</span><span class="o">=</span><span class="s">&#34;94db1cb1-74f4-4a40-ad6c-962362670409&#34;</span>
+  <span class="na">data-host-url</span><span class="o">=</span><span class="s">&#34;http://stats.mywebsite.com&#34;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>#2 data-auto-track</strong></p>
+<p>默认情况下，Umami 会自动为你跟踪所有页面浏览和事件。你可以禁用此行为，并使用跟踪器功能自己跟踪事件。</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">defer</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://mywebsite/umami.js&#34;</span>
+  <span class="na">data-website-id</span><span class="o">=</span><span class="s">&#34;94db1cb1-74f4-4a40-ad6c-962362670409&#34;</span>
+  <span class="na">data-auto-track</span><span class="o">=</span><span class="s">&#34;false&#34;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>#3 data-do-not-track</strong></p>
+<p>你可以配置 Umami 以尊重访客的 <strong>“不跟踪”</strong> 设置。</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">defer</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://mywebsite/umami.js&#34;</span>
+  <span class="na">data-website-id</span><span class="o">=</span><span class="s">&#34;94db1cb1-74f4-4a40-ad6c-962362670409&#34;</span>
+  <span class="na">data-do-not-track</span><span class="o">=</span><span class="s">&#34;true&#34;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>#4 data-cache</strong></p>
+<p>如果你从同一个用户那里获得了很多页面浏览量，例如在论坛网站上，你可以缓存一些数据来提高跟踪脚本的性能。</p>
+<p>注意：这将使用会话存储，因此你可能需要通知用户。</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">defer</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://mywebsite/umami.js&#34;</span>
+  <span class="na">data-website-id</span><span class="o">=</span><span class="s">&#34;94db1cb1-74f4-4a40-ad6c-962362670409&#34;</span>
+  <span class="na">data-cache</span><span class="o">=</span><span class="s">&#34;true&#34;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>#5 data-domains</strong></p>
+<p>如果希望跟踪器仅在特定域上运行，可以将其添加到跟踪器脚本中。这是一个逗号分隔的域名列表。如果你在临时/开发环境中工作，则会有所帮助。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">defer</span>
+  <span class="na">src</span><span class="o">=</span><span class="s">&#34;http://mywebsite/umami.js&#34;</span>
+  <span class="na">data-website-id</span><span class="o">=</span><span class="s">&#34;94db1cb1-74f4-4a40-ad6c-962362670409&#34;</span>
+  <span class="na">data-domains</span><span class="o">=</span><span class="s">&#34;mywebsite.com,mywebsite2.com&#34;</span>
+<span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="-跟踪器功能">
+    <a href="#-%e8%b7%9f%e8%b8%aa%e5%99%a8%e5%8a%9f%e8%83%bd" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    ⛳ 跟踪器功能
+</h3>
+<p>Umami 跟踪器公开了一些功能，如果你想更好地控制跟踪，可以在网站上调用这些功能。</p>
+<p><strong>#1 umami(event_value)</strong></p>
+<p>发送事件类型为 custom 的事件。</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">umami</span><span class="p">(</span><span class="s1">&#39;Signup button click&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>#2 umami.trackEvent(event_value, event_type, [url], [website_id])</strong></p>
+<p>跟踪具有自定义的事件类型的事件。</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">umami</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s1">&#39;Signup button click&#39;</span><span class="p">,</span> <span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="s1">&#39;/home&#39;</span><span class="p">,</span> <span class="s1">&#39;94db1cb1-74f4-4a40-ad6c-962362670409&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>url</code> 和 <code>website_id</code> 值是可选的，默认为脚本定义的页面 <code>url</code> 和 <code>data-website-id</code>。</p>
+<p><strong>#3 umami.trackView(url, [referrer], [website_id])</strong></p>
+<p>跟踪页面视图。</p>
+<p>用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">umami</span><span class="p">.</span><span class="nx">trackView</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">,</span> <span class="s1">&#39;https://www.google.com&#39;</span><span class="p">,</span> <span class="s1">&#39;94db1cb1-74f4-4a40-ad6c-962362670409&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>referer</code> 和 <code>website_id</code> 值是可选的，默认为脚本定义的 <code>referer</code> 和 <code>website_id</code>。</p>
+<h3 id="-环境变量">
+    <a href="#-%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🦠 环境变量
+</h3>
+<p><code>.env</code> 文件除了数据库中所需的 <code>DATABASE_URL</code> 和 <code>HASH_SALT</code> 变量之外，你可以使用一些附加变量来配置 Umami。</p>
+<p><strong>#1 <code>IGNORE_IP = &lt;ip addresses&gt;</code></strong></p>
+<p>你可以提供一个以逗号分隔的 IP 地址列表，以从数据收集中排除。</p>
+<p><strong>#2 <code>FORCE_SSL = 1</code></strong></p>
+<p>这将把所有请求从 http 重定向到 Umami 应用程序中的 https。注意，这不适用于跟踪脚本。</p>
+<p><strong>#3 <code>LOG_QUERY = 1</code></strong></p>
+<p>如果你在开发模式下运行，这将把数据库查询记录到控制台进行调试。</p>
+<p><strong>#4 <code>HOSTNAME = &lt;hostname&gt;</code></strong></p>
+<p><strong>#5 <code>PORT = &lt;port number&gt;</code></strong></p>
+<p>如果你在需要绑定到特定主机名或端口（如 Heroku）的环境中运行，你可以添加这些变量，并使用 <code>npm run start-env</code> 而不是 <code>npm start</code> 启动应用程序。</p>
+<p><strong>#6 <code>CLIENT_IP_HEADER = &lt;header name&gt;</code></strong></p>
+<p>用于检查客户端 IP 地址的 HTTP 标头。当你在使用非标准头的代理之后时，这很有用。</p>
+<p><strong>#7 <code>DISABLE_LOGIN = 1</code></strong></p>
+<p>禁用应用程序的登录页面。</p>
+<p><strong>#8 <code>REMOVE_TRAILING_SLASH = 1</code></strong></p>
+<p>从所有传入 URL 中删除尾部斜杠。</p>
+<p><strong>#9 <code>TRACKER_SCRIPT_NAME = &lt;script name&gt;</code></strong></p>
+<p>允许你为跟踪器脚本指定自定义名称，默认值为 umami。如果你更新了此项，请确保将网站上的跟踪代码更新为新名称。</p>
+<p><strong>#10 <code>DISABLE_TELEMETRY = 1</code></strong></p>
+<p>在安装过程中禁用完全匿名遥测数据的收集。</p>
+<p><strong>以下是构建自定义 image</strong></p>
+<p>必需的 docker 生成参数</p>
+<p><strong>#1 <code>BASE_PATH = &lt;path&gt;</code></strong></p>
+<p>（可选）如果要在子目录下托管 Umami。仅用于在前端为 URL 添加前缀。可能需要使用反向代理删除 BASE_PATH 前缀，并将修改后的 URL 传递给 umami。</p>
+<p><strong>#2 <code>DATABASE_TYPE = postgresql | mysql</code></strong></p>
+<p>（必需）要使用的 DB 类型。</p>
+<h3 id="-应用程序接口">
+    <a href="#-%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f%e6%8e%a5%e5%8f%a3" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🔗 应用程序接口
+</h3>
+<p>Umami 可以使用 API 接口来操作和读取数据，接口的路径为：<code>http://&lt;your-umami&gt;/api</code> 。</p>
+<p>你可以通过 Umami 管理面板执行的任何操作都可以在 API 中使用，但可能没有在此记录。</p>
+<p><strong>#1 认证</strong></p>
+<blockquote>
+<p>POST /api/auth/login</p>
+</blockquote>
+<p>首先，你需要获取 token 才能发出 API 请求。你需要使用以下数据向 <code>/api/auth/login</code> 接口发出POST请求：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;username&#34;</span><span class="p">:</span> <span class="s2">&#34;your-username&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;password&#34;</span><span class="p">:</span> <span class="s2">&#34;your-password&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果成功，你应该得到如下响应：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;token&#34;</span><span class="p">:</span> <span class="s2">&#34;eyTMjU2IiwiY...4Q0JDLUhWxnIjoiUE_A&#34;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>保存 token 值，并使用值 <code>Bearer &lt;token&gt;</code> 发送包含所有数据请求的 <code>Authorization</code>
+标头。你的请求头应该如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">Authorization</span><span class="p">:</span><span class="w"> </span><span class="l">Bearer eyTMjU2IiwiY...4Q0JDLUhWxnIjoiUE_A</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>例如，使用 curl 时，它将如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl https://yoursever/api/websites
+   -H <span class="s2">&#34;Accept: application/json&#34;</span>
+   -H <span class="s2">&#34;Authorization: Bearer &lt;token&gt;&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 v1.26.0 之前，Umami 使用的是 cookies。如果使用旧版本，你的请求头应该是这样的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">Cookie</span><span class="p">:</span><span class="w"> </span><span class="l">umami.auth=eyTMjU2IiwiY...4Q0JDLUhWxnIjoiUE_A</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>认证后的其他接口使用请参考 Umami 官方：<a href="https://umami.is/docs/api">https://umami.is/docs/api</a></p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/mysql/mysql8-windows-install/" title="MySQL8 的 Windows 安装详细流程">
+            <span>上一篇</span>
+            MySQL8 的 Windows 安装详细流程
+        </a>
+        
+
+        
+    </nav>
+    
+</div>
+
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+            <a href="https://beian.miit.gov.cn/">冀ICP备20017556号-1</a>
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>

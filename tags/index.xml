@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on rock rabbit</title>
-    <link>http://rock-rabbit.github.io/tags/</link>
-    <description>Recent content in Tags on rock rabbit</description>
+    <title>Tags on rockrabbit的小屋</title>
+    <link>https://www.68wu.cn/tags/</link>
+    <description>Recent content in Tags on rockrabbit的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Umami</title>
-      <link>http://rock-rabbit.github.io/tags/umami/</link>
+      <link>https://www.68wu.cn/tags/umami/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/umami/</guid>
+      <guid>https://www.68wu.cn/tags/umami/</guid>
       <description></description>
     </item>
     
     <item>
       <title>工具</title>
-      <link>http://rock-rabbit.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+      <link>https://www.68wu.cn/tags/%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://www.68wu.cn/tags/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mysql</title>
-      <link>http://rock-rabbit.github.io/tags/mysql/</link>
+      <link>https://www.68wu.cn/tags/mysql/</link>
       <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/mysql/</guid>
+      <guid>https://www.68wu.cn/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>快捷手册</title>
-      <link>http://rock-rabbit.github.io/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</link>
+      <link>https://www.68wu.cn/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</link>
       <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</guid>
+      <guid>https://www.68wu.cn/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aria2</title>
-      <link>http://rock-rabbit.github.io/tags/aria2/</link>
+      <link>https://www.68wu.cn/tags/aria2/</link>
       <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/aria2/</guid>
+      <guid>https://www.68wu.cn/tags/aria2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>aria2中文手册</title>
-      <link>http://rock-rabbit.github.io/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</link>
+      <link>https://www.68wu.cn/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</link>
       <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</guid>
+      <guid>https://www.68wu.cn/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://rock-rabbit.github.io/tags/golang/</link>
+      <link>https://www.68wu.cn/tags/golang/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/golang/</guid>
+      <guid>https://www.68wu.cn/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rename</title>
-      <link>http://rock-rabbit.github.io/tags/rename/</link>
+      <link>https://www.68wu.cn/tags/rename/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/rename/</guid>
+      <guid>https://www.68wu.cn/tags/rename/</guid>
       <description></description>
     </item>
     
     <item>
       <title>小问题</title>
-      <link>http://rock-rabbit.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
+      <link>https://www.68wu.cn/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
       <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://www.68wu.cn/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>http://rock-rabbit.github.io/tags/hugo/</link>
+      <link>https://www.68wu.cn/tags/hugo/</link>
       <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/tags/hugo/</guid>
+      <guid>https://www.68wu.cn/tags/hugo/</guid>
       <description></description>
     </item>
     

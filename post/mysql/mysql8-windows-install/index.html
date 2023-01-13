@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark" />
+    <title>MySQL8 的 Windows 安装详细流程 | 赵登睿的博客 - 济南独立软件开发者</title>
+
+     
+
+    <meta name="keywords" content="rockrabbit,赵登睿,赵登睿博客" />
+    <meta property="og:site_name" content="rockrabbit 的博客，分享技术、成长和生活。" />
+    <meta property="og:title" content="MySQL8 的 Windows 安装详细流程" />
+    <meta itemprop="name" content="MySQL8 的 Windows 安装详细流程" />
+    <meta name="twitter:title" content="MySQL8 的 Windows 安装详细流程" />
+    <meta name="application-name" content="MySQL8 的 Windows 安装详细流程" /><meta name="twitter:card" content="summary" />
+
+    <meta name="description"
+        content="MySQL8 是 Oracle 公司推出的新款 MySQL Server 版本，有着相比 MYSQL5.7 版本更好的性能以及许多新特性。" />
+    <meta name="twitter:description"
+        content="MySQL8 是 Oracle 公司推出的新款 MySQL Server 版本，有着相比 MYSQL5.7 版本更好的性能以及许多新特性。 " />
+    <meta itemprop="description"
+        content=" MySQL8 是 Oracle 公司推出的新款 MySQL Server 版本，有着相比 MYSQL5.7 版本更好的性能以及许多新特性。 " />
+    <meta property="og:description"
+        content=" MySQL8 是 Oracle 公司推出的新款 MySQL Server 版本，有着相比 MYSQL5.7 版本更好的性能以及许多新特性。 " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="rockrabbit" />
+<meta property="og:article:published_time" content=2022-07-05T00:00:00Z />
+<meta property="article:published_time" content=2022-07-05T00:00:00Z />
+
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "MySQL8 的 Windows 安装详细流程",
+    "author": {
+      "@type": "Person",
+      "name": "rockrabbit"
+    },
+    "datePublished": "2022-07-05",
+    "description": "MySQL8 是 Oracle 公司推出的新款 MySQL Server 版本，有着相比 MYSQL5.7 版本更好的性能以及许多新特性。",
+    "wordCount":  217 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2022-07-05",
+    "publisher": {
+      "@type": "Organization",
+      "name": "rockrabbit",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/www.68wu.cn\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> 
+    <link rel="stylesheet" href="/sass/main.min.13c03f378fb459d5a62a4462b0f5b7fa8d5a865119cf71a64a65d229b594de1f.css" />
+    <script async defer data-website-id="bcde5651-ade7-4690-b15a-0f1e3037f9a8" data-domains="www.68wu.cn"
+    src="https://umami.68wu.cn/umami.js"></script>
+</head>
+    
+    <script>
+        (function() {
+            const colorSchemeKey = 'ThemeColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    <img src="/favicon.ico" />
+                    
+                    rockrabbit 的小屋
+                </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/projects/" >💾 项目</a>
+                
+                <a href="/articles/" >📝 文章</a>
+                
+                
+                <button id="dark-mode-button">
+                    <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                    <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>MySQL8 的 Windows 安装详细流程</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            
+                            
+                            作者：rockrabbit | <time>发布日期：2022-07-05</time>
+                            | 阅读时间：2 分钟
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/mysql/">Mysql</a>
+                            
+                            <a href="/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/">快捷手册</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+        <h3 id="-什么是-mysql-">
+    <a href="#-%e4%bb%80%e4%b9%88%e6%98%af-mysql-" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🦄 什么是 MySQL ？
+</h3>
+<p>MySQL8 是 Oracle 公司推出的新款 MySQL Server ****版本，有着相比 MySQL5.7 版本更好的性能以及许多新特性。想要详细了解 MySQL8 请去查看中文版的详细介绍：<a href="https://www.68wu.cn/post/mysql/mysql8-new-features/">⚜️传送门</a></p>
+<h3 id="-为什么整理这篇文章">
+    <a href="#-%e4%b8%ba%e4%bb%80%e4%b9%88%e6%95%b4%e7%90%86%e8%bf%99%e7%af%87%e6%96%87%e7%ab%a0" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🔖 为什么整理这篇文章？
+</h3>
+<p>这是我平常开发路上遇到的一些重复性的操作，为了能够在下次不必再网页中搜索信息而浪费时间，所以有了快捷手册这个分类，主要是记录一些重复性的流程，方便以后使用。🦖</p>
+<h3 id="-安装-mysql8-的前期准备">
+    <a href="#-%e5%ae%89%e8%a3%85-mysql8-%e7%9a%84%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🕵️‍♀️ 安装 MySQL8 的前期准备
+</h3>
+<p>#1. 下载适用于 windows 系统的 MySQL 程序。</p>
+<p>进入 MySQL 官方下载页面：<a href="https://dev.mysql.com/downloads/mysql/">传送门</a>，根据下图指示下载 zip 文件。</p>
+<p><img loading="lazy" 
+    src="/mysql8-windows-install/01.jpg" 
+    alt="mysql官网下载" 
+     
+    width=723 
+    height="628"  /></p>
+<p>点击下方的链接就可以下载 MySQL 程序：</p>
+<p><img loading="lazy" 
+    src="/mysql8-windows-install/05.png" 
+    alt="mysql官网下载" 
+     
+    width=936 
+    height="264"  /></p>
+<p>#2. 把下载好的 zip 压缩包解压到  C 盘根目录，ps：你当然可以选择其他的路径来保存 MySQL 程序。</p>
+<p><img loading="lazy" 
+    src="/mysql8-windows-install/02.png" 
+    alt="mysql程序目录结构" 
+     
+    width=766 
+    height="273"  /></p>
+<p>#3. 进入到 MySQL 程序目录内，创建 <code>my.ini</code> 文件来对 MySQL 程序进行配置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="p">[</span><span class="l">client]</span><span class="w">
+</span><span class="w"></span><span class="c"># 设置mysql客户端默认字符集</span><span class="w">
+</span><span class="w"></span><span class="l">default-character-set=utf8</span><span class="w">
+</span><span class="w"> 
+</span><span class="w"></span><span class="p">[</span><span class="l">mysqld]</span><span class="w">
+</span><span class="w"></span><span class="c"># 设置 3306 端口</span><span class="w">
+</span><span class="w"></span><span class="l">port = 3306</span><span class="w">
+</span><span class="w"></span><span class="c"># 设置 mysql 的安装目录</span><span class="w">
+</span><span class="w"></span><span class="l">basedir=C:\\mysql-8.0.29-winx64</span><span class="w">
+</span><span class="w"></span><span class="c"># 允许最大连接数</span><span class="w">
+</span><span class="w"></span><span class="l">max_connections=20</span><span class="w">
+</span><span class="w"></span><span class="c"># 服务端使用的字符集默认为 8 比特编码的 latin1 字符集</span><span class="w">
+</span><span class="w"></span><span class="l">character-set-server=utf8</span><span class="w">
+</span><span class="w"></span><span class="c"># 创建新表时将使用的默认存储引擎</span><span class="w">
+</span><span class="w"></span><span class="l">default-storage-engine=INNODB</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><img loading="lazy" 
+    src="/mysql8-windows-install/03.png" 
+    alt="mysql配置" 
+     
+    width=645 
+    height="423"  /></p>
+<p>#4. 将 MySQL 程序的 bin 目录添加到环境变量。</p>
+<p><img loading="lazy" 
+    src="/mysql8-windows-install/04.png" 
+    alt="mysql环境变量" 
+     
+    width=632 
+    height="666"  /></p>
+<h3 id="-初始化-mysql8">
+    <a href="#-%e5%88%9d%e5%a7%8b%e5%8c%96-mysql8" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    💫 初始化 MySQL8
+</h3>
+<p><strong>以管理员的身份运行 CMD 窗口。</strong></p>
+<p>初始化 MySQL</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysqld</span> <span class="c1">--initialize --console
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>注意，执行完后命令行界面会输出初始密码：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="p">...</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span><span class="n">T02</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">14</span><span class="p">.</span><span class="mi">632522</span><span class="n">Z</span> <span class="mi">6</span> <span class="p">[</span><span class="n">Note</span><span class="p">]</span> <span class="p">[</span><span class="n">MY</span><span class="o">-</span><span class="mi">010454</span><span class="p">]</span> <span class="p">[</span><span class="n">Server</span><span class="p">]</span> <span class="n">A</span> <span class="k">temporary</span> <span class="n">password</span> <span class="k">is</span> <span class="k">generated</span> <span class="k">for</span> <span class="n">root</span><span class="o">@</span><span class="n">localhost</span><span class="p">:</span> <span class="o">!</span><span class="n">pSImtu</span><span class="o">+</span><span class="n">r5</span><span class="p">:</span><span class="n">K</span>
+<span class="p">...</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>!pSImtu+r5:K</code> 就是 MySQL root 用户的初始密码，之后登录进 MySQL 会要求修改密码，才可以执行其他命令。</p>
+<p>输入以下命令进行 MySQL 的安装：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysqld</span> <span class="n">install</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="-mysql8-的启动与密码修改">
+    <a href="#-mysql8-%e7%9a%84%e5%90%af%e5%8a%a8%e4%b8%8e%e5%af%86%e7%a0%81%e4%bf%ae%e6%94%b9" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    🌟 MySQL8 的启动与密码修改
+</h3>
+<p>启动 MySQL</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">net</span> <span class="k">start</span> <span class="n">mysql</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>登录 MySQL</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>参数说明：</p>
+<ul>
+<li><strong>h</strong> : 指定客户端所要登录的 MySQL 主机名, 登录本机 (localhost 或 127.0.0.1) 该参数可以省略;</li>
+<li><strong>u</strong> : 登录的用户名;</li>
+<li><strong>p</strong> : 告诉服务器将会使用一个密码来登录, 如果所要登录的用户名密码为空, 可以忽略此选项。</li>
+</ul>
+<p>回车后，MySQL 会让你输入密码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">Enter</span> <span class="n">password</span><span class="p">:</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>直接输入之前初始化产生的默认密码回车。</p>
+<p>登录成功后你将会看到 <code>Welcome to the MySQL monitor...</code> 的提示语。</p>
+<p>之后，你需要修改密码才能进行其他操作，修改密码的方式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="k">USER</span> <span class="s1">&#39;root&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="n">IDENTIFIED</span> <span class="k">WITH</span> <span class="n">MYSQL_NATIVE_PASSWORD</span> <span class="k">BY</span> <span class="s1">&#39;新密码&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>出现执行成功：<code>Query OK, 0 rows affected (0.02 sec)</code></p>
+<p>验证是否成功：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">#</span> <span class="err">登录</span>
+<span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">root</span> <span class="o">-</span><span class="n">p</span>
+<span class="o">#</span> <span class="err">输入新的密码</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>🎉 恭喜你，到这里 MySQL8 的 Windows 安装之旅就结束啦！！！</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/mysql/mysql8-new-features/" title="MySQL8 的新特性：NoSQL、索引、账户管理、窗口函数...">
+            <span>上一篇</span>
+            MySQL8 的新特性：NoSQL、索引、账户管理、窗口函数...
+        </a>
+        
+
+        
+        <a rel="next" href="/post/tool/umami/" title="Umami 一款简单的网站流量分析平台">
+            <span>下一篇</span>
+            Umami 一款简单的网站流量分析平台
+        </a>
+        
+    </nav>
+    
+</div>
+
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+            <a href="https://beian.miit.gov.cn/">冀ICP备20017556号-1</a>
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>

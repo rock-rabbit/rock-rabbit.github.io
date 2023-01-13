@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>工具 on rock rabbit</title>
-    <link>http://rock-rabbit.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
-    <description>Recent content in 工具 on rock rabbit</description>
+    <title>工具 on rockrabbit的小屋</title>
+    <link>https://www.68wu.cn/categories/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on rockrabbit的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Umami 一款简单的网站流量分析平台</title>
-      <link>http://rock-rabbit.github.io/posts/tool/umami/</link>
+      <link>https://www.68wu.cn/post/tool/umami/</link>
       <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/posts/tool/umami/</guid>
-      <description>🥣 Umami （鲜味） Umami 是一个简单、易于使用、自托管的网络分析解决方案。
+      <guid>https://www.68wu.cn/post/tool/umami/</guid>
+      <description>🥣 Umami （鲜味）  Umami 是一个简单、易于使用、自托管的网络分析解决方案。
 目标是为你提供一个更友好、注重隐私的 Google Analytics 替代方案，以及一个免费、开源的付费解决方案替代方案。Umami 只收集你关心的指标，所有内容都放在一个页面上。你可以在此处查看现场演示。
 推荐使用 Umami 的原因？
 在国内有一款非常有名的网站流量分析平台：友盟（cnzz），为什么我不推荐使用它？因为友盟多次暴露出它会在免费使用它的网页中插入广告，导致我不再信任它。
@@ -21,7 +21,7 @@ Umami 是开源的自建平台、安全、稳定，小巧，使用 Umami 就可�
 它对于开发者来说是非常好搭建和使用的，因为它支持 docker。
 官网：https://umami.is
 Umami 支持多国语言，包括简体中文、繁体中文等等。
-✨ Umami 特点  简洁的分析：Umami 仅衡量你关心的重要指标：网页浏览量、使用的设备以及访问者的来源。所有内容都显示在一个易于浏览的页面上。 不限网站数量：Umami 能够一次安装就跟踪无限数量的网站。你甚至可以跟踪子域和单个 URL。 绕过广告拦截器：Umami 由你在自己的域名下托管，因此你可以有效的避免与 Google Analytics 不同的广告拦截程序。 体积小：跟踪脚本很小（只有 2KB），支持 IE 等传统浏览器。 多账户：Umami 可以用来为朋友或客户托管数据。只需创建一个单独的帐户，他们就可以开始在自己的仪表板上跟踪自己的网站。 数据公开：如果你想公开分享你的统计数据，Umami 可以为你唯一生成一个 URL。 手机友好：Umami 界面针对移动设备进行了优化，因此你可以在任何地方查看你的统计数据。 数据所有权：因为 Umami 是自托管的，所以你拥有所有数据。无需将数据交给第三方进行利用。 以隐私为中心：Umami 不收集任何个人身份信息，并对收集的所有数据进行匿名。 开源：Umami 是开源的，并根据 MIT 许可证获得许可。源代码可在 Github 上获得。  ☘️ Umami 环境要求  装有 Node.js 12 或更高版本 数据库：Umami 支持 MySQL 和 Postgresql 数据库 MySQL 数据库最低要求 5.</description>
+   ✨ Umami 特点   简洁的分析：Umami 仅衡量你关心的重要指标：网页浏览量、使用的设备以及访问者的来源。所有内容都显示在一个易于浏览的页面上。 不限网站数量：Umami 能够一次安装就跟踪无限数量的网站。你甚至可以跟踪子域和单个 URL。 绕过广告拦截器：Umami 由你在自己的域名下托管，因此你可以有效的避免与 Google Analytics 不同的广告拦截程序。 体积小：跟踪脚本很小（只有 2KB），支持 IE 等传统浏览器。 多账户：Umami 可以用来为朋友或客户托管数据。只需创建一个单独的帐户，他们就可以开始在自己的仪表板上跟踪自己的网站。 数据公开：如果你想公开分享你的统计数据，Umami 可以为你唯一生成一个 URL。 手机友好：Umami 界面针对移动设备进行了优化，因此你可以在任何地方查看你的统计数据。 数据所有权：因为 Umami 是自托管的，所以你拥有所有数据。无需将数据交给第三方进行利用。 以隐私为中心：Umami 不收集任何个人身份信息，并对收集的所有数据进行匿名。 开源：Umami 是开源的，并根据 MIT 许可证获得许可。源代码可在 Github 上获得。     ☘️ Umami 环境要求   装有 Node.</description>
     </item>
     
   </channel>

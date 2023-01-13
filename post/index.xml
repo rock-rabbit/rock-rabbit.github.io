@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on rockrabbit的小屋</title>
+    <link>https://www.68wu.cn/post/</link>
+    <description>Recent content in Posts on rockrabbit的小屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Umami 一款简单的网站流量分析平台</title>
+      <link>https://www.68wu.cn/post/tool/umami/</link>
+      <pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.68wu.cn/post/tool/umami/</guid>
+      <description>🥣 Umami （鲜味）  Umami 是一个简单、易于使用、自托管的网络分析解决方案。
+目标是为你提供一个更友好、注重隐私的 Google Analytics 替代方案，以及一个免费、开源的付费解决方案替代方案。Umami 只收集你关心的指标，所有内容都放在一个页面上。你可以在此处查看现场演示。
+推荐使用 Umami 的原因？
+在国内有一款非常有名的网站流量分析平台：友盟（cnzz），为什么我不推荐使用它？因为友盟多次暴露出它会在免费使用它的网页中插入广告，导致我不再信任它。
+Umami 是开源的自建平台、安全、稳定，小巧，使用 Umami 就可以避免友盟这种事件的发生。
+它对于开发者来说是非常好搭建和使用的，因为它支持 docker。
+官网：https://umami.is
+Umami 支持多国语言，包括简体中文、繁体中文等等。
+   ✨ Umami 特点   简洁的分析：Umami 仅衡量你关心的重要指标：网页浏览量、使用的设备以及访问者的来源。所有内容都显示在一个易于浏览的页面上。 不限网站数量：Umami 能够一次安装就跟踪无限数量的网站。你甚至可以跟踪子域和单个 URL。 绕过广告拦截器：Umami 由你在自己的域名下托管，因此你可以有效的避免与 Google Analytics 不同的广告拦截程序。 体积小：跟踪脚本很小（只有 2KB），支持 IE 等传统浏览器。 多账户：Umami 可以用来为朋友或客户托管数据。只需创建一个单独的帐户，他们就可以开始在自己的仪表板上跟踪自己的网站。 数据公开：如果你想公开分享你的统计数据，Umami 可以为你唯一生成一个 URL。 手机友好：Umami 界面针对移动设备进行了优化，因此你可以在任何地方查看你的统计数据。 数据所有权：因为 Umami 是自托管的，所以你拥有所有数据。无需将数据交给第三方进行利用。 以隐私为中心：Umami 不收集任何个人身份信息，并对收集的所有数据进行匿名。 开源：Umami 是开源的，并根据 MIT 许可证获得许可。源代码可在 Github 上获得。     ☘️ Umami 环境要求   装有 Node.</description>
+    </item>
+    
+    <item>
+      <title>MySQL8 的 Windows 安装详细流程</title>
+      <link>https://www.68wu.cn/post/mysql/mysql8-windows-install/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.68wu.cn/post/mysql/mysql8-windows-install/</guid>
+      <description>🦄 什么是 MySQL ？  MySQL8 是 Oracle 公司推出的新款 MySQL Server ****版本，有着相比 MySQL5.7 版本更好的性能以及许多新特性。想要详细了解 MySQL8 请去查看中文版的详细介绍：⚜️传送门
+   🔖 为什么整理这篇文章？  这是我平常开发路上遇到的一些重复性的操作，为了能够在下次不必再网页中搜索信息而浪费时间，所以有了快捷手册这个分类，主要是记录一些重复性的流程，方便以后使用。🦖
+   🕵️‍♀️ 安装 MySQL8 的前期准备  #1. 下载适用于 windows 系统的 MySQL 程序。
+进入 MySQL 官方下载页面：传送门，根据下图指示下载 zip 文件。
+点击下方的链接就可以下载 MySQL 程序：
+#2. 把下载好的 zip 压缩包解压到 C 盘根目录，ps：你当然可以选择其他的路径来保存 MySQL 程序。
+#3. 进入到 MySQL 程序目录内，创建 my.ini 文件来对 MySQL 程序进行配置。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  [client]# 设置mysql客户端默认字符集default-character-set=utf8[mysqld]# 设置 3306 端口port = 3306# 设置 mysql 的安装目录basedir=C:\\mysql-8.</description>
+    </item>
+    
+    <item>
+      <title>MySQL8 的新特性：NoSQL、索引、账户管理、窗口函数...</title>
+      <link>https://www.68wu.cn/post/mysql/mysql8-new-features/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.68wu.cn/post/mysql/mysql8-new-features/</guid>
+      <description>一、新特性概述     1.1 更简便的 NoSQL 支持  NoSQL 泛指非关系型数据库和数据存储。随着互联网平台的规模飞速发展，传统的关系型数据库已经越来越不能满足需求。
+从 5.6 版本开始，MySQL 就开始支持简单的 NoSQL 存储功能。MySQL8 对这一功能做了优化，以更灵活的方式实现 NosQL 功能，不再依赖模式（schema）。
+   1.2 更好的索引  在查询中，正确地使用索引可以提高查询的效率，MySQL8 中新增了隐藏索引和降序索引，隐藏索引可以用来测试去掉索引对查询性能的影响。在查询中混合存在多列索引时，使用降序索引可以提高查询的性能。
+   1.3 更完善的 JSON 支持  MySQL 从 5.7 开始支持原生 JSON 数据的存储，MySQL8 对这一功能做了优化，增加了聚合函数JSON_ARRAYAGG() 和 JSON_OBJECTAGG()，将参数聚合为 JSON 数组或对象，新增了行内操作符 -&amp;gt;&amp;gt; ，是列路径运算符 -&amp;gt; 的增强，对 JSON 排序做了提升，并优化了 JSON 的更新操作。
+   1.4 安全和账户管理  MySQL8 中新增了 caching_sha2_password 授权插件、角色、密码历史记录和 FIPS 模式支持，这些特性提高了数据库的安全性和性能，使数据库管理员能够更灵活地进行账户管理工作。</description>
+    </item>
+    
+    <item>
+      <title>aria2 中文手册（一）-详细介绍、编译、交叉编译</title>
+      <link>https://www.68wu.cn/post/aria2/aria2-chinese-manual-1/</link>
+      <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.68wu.cn/post/aria2/aria2-chinese-manual-1/</guid>
+      <description>文章信息均来自 aria2 官网：aria2 和 开源仓库：https://github.com/aria2/aria2
+   👾 aria2 是什么？   aria2 是一个轻量级、多协议、多数据源的下载工具； aria2 支持的协议 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink； aria2 可以从多个来源/协议下载文件，并尝试利用您的最大下载带宽，它支持同时从 HTTP（S）/FTP/SFTP 和 BitTorrent 下载文件，而从 HTTP（S）/FTP/SFTP 下载的数据上传到 BitTorrent 群，可以使用 Metalink 自动验证来自像 BitTorrent 文件这样的数据块； aria2 的使用者可以通过内置的 JSON-RPC 和 XML-RPC 服务进行操作，在操作时可以使用密钥保证操作者是有权限的；     ⬇️ 下载 aria2 的方法  在 aria2 仓库中发行的版本：aria2 最新发行版
+你可以直接下载适用于 Windows 和 Android 的源代码分发和二进制文件。
+   ✨ aria2 特点   命令行界面 支持 HTTP（S）、FTP、SFTP 和 BitTorrent 下载文件 分段下载 支持 Metalink version 4 （RFC 5854）（HTTP/FTP/SFTP/BitTorrent） 支持 Metalink version 3.</description>
+    </item>
+    
+    <item>
+      <title>golang os.Rename 时出现错误，不能跨磁盘移动文件解决方法！</title>
+      <link>https://www.68wu.cn/post/golang/file-move/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.68wu.cn/post/golang/file-move/</guid>
+      <description>在 windows 下跨卷使用 os.Rename 时会报错：golang cannot move the file to a different disk drive.
+不能直接跨卷/分区使用，可以使用以下方法实现跨卷/分区的文件移动。
+实现逻辑：在目标位置新建一个空文件，使用 io.Copy 拷贝数据到新文件里后，删除源文件。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24  // MoveFile 实现跨卷/分区移动文件 func MoveFile(sourcePath, destPath string) error { inputFile, err := os.Open(sourcePath) if err != nil { return fmt.Errorf(&amp;#34;Couldn&amp;#39;t open source file: %s&amp;#34;, err) } outputFile, err := os.</description>
+    </item>
+    
+    <item>
+      <title>Hugo 文件的前置参数</title>
+      <link>https://www.68wu.cn/post/hugo/front-matter/</link>
+      <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.68wu.cn/post/hugo/front-matter/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  --- # author 作者 author: &amp;#34;Hugo Authors&amp;#34; # title 内容标题 title: &amp;#34;Hugo 文件的前置参数&amp;#34; # description 描述 description: &amp;#34;这是使用 hugo 编写 markdown 文章时所有内置的参数，整理出来方便以后查找使用。&amp;#34; # tags 内容标签 tags: [&amp;#34;hugo&amp;#34;, &amp;#34;快捷手册&amp;#34;] # lastmod 上次修改时间 lastmod: &amp;#34;2022-05-27&amp;#34; # date 内容排序时间 date: &amp;#34;2022-05-27&amp;#34; # weight 用于排序 weight: 1 # 文章分类 categories: - &amp;#34;Hugo&amp;#34; ---   </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,63 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>快捷手册 on rock rabbit</title>
-    <link>http://rock-rabbit.github.io/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</link>
-    <description>Recent content in 快捷手册 on rock rabbit</description>
+    <title>快捷手册 on rockrabbit的小屋</title>
+    <link>https://www.68wu.cn/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/</link>
+    <description>Recent content in 快捷手册 on rockrabbit的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/tags/%E5%BF%AB%E6%8D%B7%E6%89%8B%E5%86%8C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MySQL8 的 Windows 安装详细流程</title>
-      <link>http://rock-rabbit.github.io/posts/mysql/mysql8-windows-install/</link>
+      <link>https://www.68wu.cn/post/mysql/mysql8-windows-install/</link>
       <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/posts/mysql/mysql8-windows-install/</guid>
-      <description>🦄 什么是 MySQL ？ MySQL8 是 Oracle 公司推出的新款 MySQL Server ****版本，有着相比 MySQL5.7 版本更好的性能以及许多新特性。想要详细了解 MySQL8 请去查看中文版的详细介绍：⚜️传送门
-🔖 为什么整理这篇文章？ 这是我平常开发路上遇到的一些重复性的操作，为了能够在下次不必再网页中搜索信息而浪费时间，所以有了快捷手册这个分类，主要是记录一些重复性的流程，方便以后使用。🦖
-🕵️‍♀️ 安装 MySQL8 的前期准备 #1. 下载适用于 windows 系统的 MySQL 程序。
+      <guid>https://www.68wu.cn/post/mysql/mysql8-windows-install/</guid>
+      <description>🦄 什么是 MySQL ？  MySQL8 是 Oracle 公司推出的新款 MySQL Server ****版本，有着相比 MySQL5.7 版本更好的性能以及许多新特性。想要详细了解 MySQL8 请去查看中文版的详细介绍：⚜️传送门
+   🔖 为什么整理这篇文章？  这是我平常开发路上遇到的一些重复性的操作，为了能够在下次不必再网页中搜索信息而浪费时间，所以有了快捷手册这个分类，主要是记录一些重复性的流程，方便以后使用。🦖
+   🕵️‍♀️ 安装 MySQL8 的前期准备  #1. 下载适用于 windows 系统的 MySQL 程序。
 进入 MySQL 官方下载页面：传送门，根据下图指示下载 zip 文件。
 点击下方的链接就可以下载 MySQL 程序：
 #2. 把下载好的 zip 压缩包解压到 C 盘根目录，ps：你当然可以选择其他的路径来保存 MySQL 程序。
 #3. 进入到 MySQL 程序目录内，创建 my.ini 文件来对 MySQL 程序进行配置。
-[client] # 设置mysql客户端默认字符集 default-character-set=utf8 [mysqld] # 设置 3306 端口 port = 3306 # 设置 mysql 的安装目录 basedir=C:\\mysql-8.0.29-winx64 # 允许最大连接数 max_connections=20 # 服务端使用的字符集默认为 8 比特编码的 latin1 字符集 character-set-server=utf8 # 创建新表时将使用的默认存储引擎 default-storage-engine=INNODB #4.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  [client]# 设置mysql客户端默认字符集default-character-set=utf8[mysqld]# 设置 3306 端口port = 3306# 设置 mysql 的安装目录basedir=C:\\mysql-8.</description>
     </item>
     
     <item>
       <title>MySQL8 的新特性：NoSQL、索引、账户管理、窗口函数...</title>
-      <link>http://rock-rabbit.github.io/posts/mysql/mysql8-new-features/</link>
+      <link>https://www.68wu.cn/post/mysql/mysql8-new-features/</link>
       <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/posts/mysql/mysql8-new-features/</guid>
-      <description>一、新特性概述 1.1 更简便的 NoSQL 支持 NoSQL 泛指非关系型数据库和数据存储。随着互联网平台的规模飞速发展，传统的关系型数据库已经越来越不能满足需求。
+      <guid>https://www.68wu.cn/post/mysql/mysql8-new-features/</guid>
+      <description>一、新特性概述     1.1 更简便的 NoSQL 支持  NoSQL 泛指非关系型数据库和数据存储。随着互联网平台的规模飞速发展，传统的关系型数据库已经越来越不能满足需求。
 从 5.6 版本开始，MySQL 就开始支持简单的 NoSQL 存储功能。MySQL8 对这一功能做了优化，以更灵活的方式实现 NosQL 功能，不再依赖模式（schema）。
-1.2 更好的索引 在查询中，正确地使用索引可以提高查询的效率，MySQL8 中新增了隐藏索引和降序索引，隐藏索引可以用来测试去掉索引对查询性能的影响。在查询中混合存在多列索引时，使用降序索引可以提高查询的性能。
-1.3 更完善的 JSON 支持 MySQL 从 5.7 开始支持原生 JSON 数据的存储，MySQL8 对这一功能做了优化，增加了聚合函数JSON_ARRAYAGG() 和 JSON_OBJECTAGG()，将参数聚合为 JSON 数组或对象，新增了行内操作符 -&amp;gt;&amp;gt; ，是列路径运算符 -&amp;gt; 的增强，对 JSON 排序做了提升，并优化了 JSON 的更新操作。
-1.4 安全和账户管理 MySQL8 中新增了 caching_sha2_password 授权插件、角色、密码历史记录和 FIPS 模式支持，这些特性提高了数据库的安全性和性能，使数据库管理员能够更灵活地进行账户管理工作。
-1.5 InnoDB 的变化 InnoDB 是 MySQL 默认的存储引擎，是事务型数据库的首选引擎，支持事务安全表（ACID），支持行锁定和外键。在 MySQL8 版本中，InnoDB 在自增、索引、加密、死锁、共享锁等方面做了大量的改进和优化，并且支持原子数据定义语言（DDL），提高了数据安全性，对事务提供更好的支持。
-1.6 数据字典 在之前的 MySQL 版本中，字典数据都存储在元数据文件和非事务表中。从 MySQL8 开始新增了事务数据字典，在这个字典里存储着数据库对象信息，这些数据字典存储在内部事务表中。
-1.7 原子数据定义语句 MySQL8 开始支持原子数据定义语句（Automic DDL），即原子 DDL。目前，只有 InnoDB 存储引擎支持原子 DDL。原子数据定义语句（DDL）将与 DDL 操作相关的数据字典更新、存储引擎操作、二进制日志写入结合到一个单独的原子事务中，这使得即使服务器崩溃，事务也会提交或回滚。</description>
+   1.2 更好的索引  在查询中，正确地使用索引可以提高查询的效率，MySQL8 中新增了隐藏索引和降序索引，隐藏索引可以用来测试去掉索引对查询性能的影响。在查询中混合存在多列索引时，使用降序索引可以提高查询的性能。
+   1.3 更完善的 JSON 支持  MySQL 从 5.7 开始支持原生 JSON 数据的存储，MySQL8 对这一功能做了优化，增加了聚合函数JSON_ARRAYAGG() 和 JSON_OBJECTAGG()，将参数聚合为 JSON 数组或对象，新增了行内操作符 -&amp;gt;&amp;gt; ，是列路径运算符 -&amp;gt; 的增强，对 JSON 排序做了提升，并优化了 JSON 的更新操作。
+   1.4 安全和账户管理  MySQL8 中新增了 caching_sha2_password 授权插件、角色、密码历史记录和 FIPS 模式支持，这些特性提高了数据库的安全性和性能，使数据库管理员能够更灵活地进行账户管理工作。</description>
     </item>
     
     <item>
       <title>aria2 中文手册（一）-详细介绍、编译、交叉编译</title>
-      <link>http://rock-rabbit.github.io/posts/aria2/aria2-chinese-manual-1/</link>
+      <link>https://www.68wu.cn/post/aria2/aria2-chinese-manual-1/</link>
       <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/posts/aria2/aria2-chinese-manual-1/</guid>
+      <guid>https://www.68wu.cn/post/aria2/aria2-chinese-manual-1/</guid>
       <description>文章信息均来自 aria2 官网：aria2 和 开源仓库：https://github.com/aria2/aria2
-👾 aria2 是什么？  aria2 是一个轻量级、多协议、多数据源的下载工具； aria2 支持的协议 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink； aria2 可以从多个来源/协议下载文件，并尝试利用您的最大下载带宽，它支持同时从 HTTP（S）/FTP/SFTP 和 BitTorrent 下载文件，而从 HTTP（S）/FTP/SFTP 下载的数据上传到 BitTorrent 群，可以使用 Metalink 自动验证来自像 BitTorrent 文件这样的数据块； aria2 的使用者可以通过内置的 JSON-RPC 和 XML-RPC 服务进行操作，在操作时可以使用密钥保证操作者是有权限的；  ⬇️ 下载 aria2 的方法 在 aria2 仓库中发行的版本：aria2 最新发行版
+   👾 aria2 是什么？   aria2 是一个轻量级、多协议、多数据源的下载工具； aria2 支持的协议 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink； aria2 可以从多个来源/协议下载文件，并尝试利用您的最大下载带宽，它支持同时从 HTTP（S）/FTP/SFTP 和 BitTorrent 下载文件，而从 HTTP（S）/FTP/SFTP 下载的数据上传到 BitTorrent 群，可以使用 Metalink 自动验证来自像 BitTorrent 文件这样的数据块； aria2 的使用者可以通过内置的 JSON-RPC 和 XML-RPC 服务进行操作，在操作时可以使用密钥保证操作者是有权限的；     ⬇️ 下载 aria2 的方法  在 aria2 仓库中发行的版本：aria2 最新发行版
 你可以直接下载适用于 Windows 和 Android 的源代码分发和二进制文件。
-✨ aria2 特点  命令行界面 支持 HTTP（S）、FTP、SFTP 和 BitTorrent 下载文件 分段下载 支持 Metalink version 4 （RFC 5854）（HTTP/FTP/SFTP/BitTorrent） 支持 Metalink version 3.</description>
+   ✨ aria2 特点   命令行界面 支持 HTTP（S）、FTP、SFTP 和 BitTorrent 下载文件 分段下载 支持 Metalink version 4 （RFC 5854）（HTTP/FTP/SFTP/BitTorrent） 支持 Metalink version 3.</description>
     </item>
     
     <item>
       <title>Hugo 文件的前置参数</title>
-      <link>http://rock-rabbit.github.io/posts/hugo/front-matter/</link>
+      <link>https://www.68wu.cn/post/hugo/front-matter/</link>
       <pubDate>Fri, 27 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/posts/hugo/front-matter/</guid>
-      <description>--- # author 作者 author: &amp;#34;Hugo Authors&amp;#34; # title 内容标题 title: &amp;#34;Hugo 文件的前置参数&amp;#34; # description 描述 description: &amp;#34;这是使用 hugo 编写 markdown 文章时所有内置的参数，整理出来方便以后查找使用。&amp;#34; # tags 内容标签 tags: [&amp;#34;hugo&amp;#34;, &amp;#34;快捷手册&amp;#34;] # lastmod 上次修改时间 lastmod: &amp;#34;2022-05-27&amp;#34; # date 内容排序时间 date: &amp;#34;2022-05-27&amp;#34; # weight 用于排序 weight: 1 # 文章分类 categories: - &amp;#34;Hugo&amp;#34; --- </description>
+      <guid>https://www.68wu.cn/post/hugo/front-matter/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  --- # author 作者 author: &amp;#34;Hugo Authors&amp;#34; # title 内容标题 title: &amp;#34;Hugo 文件的前置参数&amp;#34; # description 描述 description: &amp;#34;这是使用 hugo 编写 markdown 文章时所有内置的参数，整理出来方便以后查找使用。&amp;#34; # tags 内容标签 tags: [&amp;#34;hugo&amp;#34;, &amp;#34;快捷手册&amp;#34;] # lastmod 上次修改时间 lastmod: &amp;#34;2022-05-27&amp;#34; # date 内容排序时间 date: &amp;#34;2022-05-27&amp;#34; # weight 用于排序 weight: 1 # 文章分类 categories: - &amp;#34;Hugo&amp;#34; ---   </description>
     </item>
     
   </channel>

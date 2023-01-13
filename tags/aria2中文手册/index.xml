@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>aria2中文手册 on rock rabbit</title>
-    <link>http://rock-rabbit.github.io/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</link>
-    <description>Recent content in aria2中文手册 on rock rabbit</description>
+    <title>aria2中文手册 on rockrabbit的小屋</title>
+    <link>https://www.68wu.cn/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/</link>
+    <description>Recent content in aria2中文手册 on rockrabbit的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 04 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://rock-rabbit.github.io/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/tags/aria2%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aria2 中文手册（一）-详细介绍、编译、交叉编译</title>
-      <link>http://rock-rabbit.github.io/posts/aria2/aria2-chinese-manual-1/</link>
+      <link>https://www.68wu.cn/post/aria2/aria2-chinese-manual-1/</link>
       <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://rock-rabbit.github.io/posts/aria2/aria2-chinese-manual-1/</guid>
+      <guid>https://www.68wu.cn/post/aria2/aria2-chinese-manual-1/</guid>
       <description>文章信息均来自 aria2 官网：aria2 和 开源仓库：https://github.com/aria2/aria2
-👾 aria2 是什么？  aria2 是一个轻量级、多协议、多数据源的下载工具； aria2 支持的协议 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink； aria2 可以从多个来源/协议下载文件，并尝试利用您的最大下载带宽，它支持同时从 HTTP（S）/FTP/SFTP 和 BitTorrent 下载文件，而从 HTTP（S）/FTP/SFTP 下载的数据上传到 BitTorrent 群，可以使用 Metalink 自动验证来自像 BitTorrent 文件这样的数据块； aria2 的使用者可以通过内置的 JSON-RPC 和 XML-RPC 服务进行操作，在操作时可以使用密钥保证操作者是有权限的；  ⬇️ 下载 aria2 的方法 在 aria2 仓库中发行的版本：aria2 最新发行版
+   👾 aria2 是什么？   aria2 是一个轻量级、多协议、多数据源的下载工具； aria2 支持的协议 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink； aria2 可以从多个来源/协议下载文件，并尝试利用您的最大下载带宽，它支持同时从 HTTP（S）/FTP/SFTP 和 BitTorrent 下载文件，而从 HTTP（S）/FTP/SFTP 下载的数据上传到 BitTorrent 群，可以使用 Metalink 自动验证来自像 BitTorrent 文件这样的数据块； aria2 的使用者可以通过内置的 JSON-RPC 和 XML-RPC 服务进行操作，在操作时可以使用密钥保证操作者是有权限的；     ⬇️ 下载 aria2 的方法  在 aria2 仓库中发行的版本：aria2 最新发行版
 你可以直接下载适用于 Windows 和 Android 的源代码分发和二进制文件。
-✨ aria2 特点  命令行界面 支持 HTTP（S）、FTP、SFTP 和 BitTorrent 下载文件 分段下载 支持 Metalink version 4 （RFC 5854）（HTTP/FTP/SFTP/BitTorrent） 支持 Metalink version 3.</description>
+   ✨ aria2 特点   命令行界面 支持 HTTP（S）、FTP、SFTP 和 BitTorrent 下载文件 分段下载 支持 Metalink version 4 （RFC 5854）（HTTP/FTP/SFTP/BitTorrent） 支持 Metalink version 3.</description>
     </item>
     
   </channel>
