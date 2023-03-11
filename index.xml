@@ -5,7 +5,231 @@
     <description>Recent content on rockrabbit的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+    <title>使用 NSIS 制作 Windows 安装程序</title>
+    <link>https://www.68wu.cn/post/tool/nsis/</link>
+    <pubDate>Sat, 11 Mar 2023 00:00:00 +0000</pubDate>
+    
+    <guid>https://www.68wu.cn/post/tool/nsis/</guid>
+    <description>
+        &lt;h3 id=&#34;介绍&#34;&gt;
+    &lt;a href=&#34;#%e4%bb%8b%e7%bb%8d&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    介绍
+&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://nsis.sourceforge.io/Main_Page&#34;&gt;NSIS&lt;/a&gt; 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。因为它是基于脚本语言，所以您可以完全控制安装程序的每个部分。&lt;/p&gt;
+&lt;p&gt;NSIS 脚本语言支持变量、函数和字符串操作，就像普通编程语言一样 - 但专为创建安装程序而设计。即使具有所有这些功能，NSIS 仍然是最小的安装程序系统。使用默认选项时，它的开销仅为 34 KB。&lt;/p&gt;
+&lt;h3 id=&#34;特征&#34;&gt;
+    &lt;a href=&#34;#%e7%89%b9%e5%be%81&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    特征
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;开销很小（小于 40kb）&lt;/li&gt;
+&lt;li&gt;强大的脚本语言&lt;/li&gt;
+&lt;li&gt;易于使用，支持各种功能，如自定义界面、卸载程序、创建桌面快捷方式等&lt;/li&gt;
+&lt;li&gt;支持多语言&lt;/li&gt;
+&lt;li&gt;独特的压缩选项（zlib，bzip2，lzma）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;安装-nsis&#34;&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85-nsis&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    安装 NSIS
+&lt;/h3&gt;
+&lt;p&gt;在 &lt;a href=&#34;https://nsis.sourceforge.io/Download&#34;&gt;NSIS 下载地址&lt;/a&gt; 下载 NSIS 安装程序，安装完成后默认会安装到 &lt;code&gt;C:\\Program Files (x86)\\NSIS&lt;/code&gt;。需要将这个目录添加进 &lt;code&gt;PATH&lt;/code&gt; 里，以便使用 &lt;code&gt;makensis.exe&lt;/code&gt; 执行 nsi 脚本。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; 
+    src=&#34;https://www.68wu.cn/tool/nsis/install.png&#34; 
+    alt=&#34;install&#34; 
+     
+    width=1001 
+    height=&#34;705&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; 
+    src=&#34;https://www.68wu.cn/tool/nsis/install2.png&#34; 
+    alt=&#34;install2&#34; 
+     
+    width=496 
+    height=&#34;384&#34;  /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;创建-nsis-安装程序&#34;&gt;
+    &lt;a href=&#34;#%e5%88%9b%e5%bb%ba-nsis-%e5%ae%89%e8%a3%85%e7%a8%8b%e5%ba%8f&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    创建 NSIS 安装程序
+&lt;/h3&gt;
+&lt;p&gt;创建一个 NSIS 安装程序的过程包含三个主要步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;编写 &lt;code&gt;.nsi&lt;/code&gt; 脚本文件；&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;makensis&lt;/code&gt; 编译脚本文件，&lt;code&gt;makensis nsis.nsi&lt;/code&gt; ；&lt;/li&gt;
+&lt;li&gt;运行生成的 &lt;code&gt;.exe&lt;/code&gt; 安装程序；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以下是一个示例脚本文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;;--------------------------------
+; 常规属性
+;--------------------------------
+Name &amp;quot;My Application&amp;quot;
+OutFile &amp;quot;MyApplication Setup.exe&amp;quot;
+InstallDir &amp;quot;$PROGRAMFILES\my_application&amp;quot;
+
+;--------------------------------
+; 定义界面
+;--------------------------------
+!include &amp;quot;MUI2.nsh&amp;quot;
+
+;--------------------------------
+; 定义安装过程
+;--------------------------------
+; 安装目录选择页面
+!insertmacro MUI_PAGE_DIRECTORY
+; 安装过程页面
+!insertmacro MUI_PAGE_INSTFILES
+; 安装完成页面
+!insertmacro MUI_PAGE_FINISH
+
+; 卸载过程页面
+!insertmacro MUI_UNPAGE_CONFIRM
+; 卸载完成页面
+!insertmacro MUI_UNPAGE_INSTFILES
+
+;--------------------------------
+; 定义安装区段
+;--------------------------------
+Section &amp;quot;MainSection&amp;quot; SEC01
+    SetOutPath $INSTDIR
+    File &amp;quot;MyApplication.exe&amp;quot;
+SectionEnd
+
+;--------------------------------
+; 定义卸载区段
+;--------------------------------
+Section &amp;quot;Uninstall&amp;quot; SEC02
+    Delete $INSTDIR\\MyApplication.exe
+    RMDir $INSTDIR
+SectionEnd
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;示例脚本说明：&lt;/p&gt;
+&lt;p&gt;常规属性：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Name&lt;/code&gt; 定义程序名称；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;OutFile&lt;/code&gt; NSIS 输出文件，也就是安装文件的输出路径；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;InstallDir&lt;/code&gt; 安装目录；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;定义界面&lt;/code&gt;：引入新界面样式的头文件；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;定义安装过程&lt;/code&gt;：安装过程有两种，安装过程和卸载过程；&lt;/p&gt;
+&lt;p&gt;区段 (Section) ：&lt;/p&gt;
+&lt;p&gt;安装时可能要选择安装多个组件，区段就是定义组件的安装文件和逻辑；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;安装区段&lt;/code&gt;：安装区段的名字定义相对随意，除了卸载区段的名称限制其他的都是安装区段；&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;卸载区段&lt;/code&gt;：卸载区段的名字限制：前缀为 &lt;code&gt;un.&lt;/code&gt; 或者名字是 &lt;code&gt;Uninstall&lt;/code&gt; 的区段；&lt;/p&gt;
+&lt;p&gt;常量：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$PROGRAMFILES&lt;/code&gt;：程序目录；&lt;/p&gt;
+&lt;p&gt;变量：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;$INSTDIR&lt;/code&gt; ：安装目录；&lt;/p&gt;
+&lt;p&gt;脚本还有很多功能，可以查看手册：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;tool/nsis/NSIS.chm&#34;&gt;下载中文版 NSIS.chm&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;其他示例&#34;&gt;
+    &lt;a href=&#34;#%e5%85%b6%e4%bb%96%e7%a4%ba%e4%be%8b&#34; class=&#34;anchor&#34;&gt;
+        &lt;svg class=&#34;icon&#34; aria-hidden=&#34;true&#34; focusable=&#34;false&#34; height=&#34;16&#34; version=&#34;1.1&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;16&#34;&gt;
+            &lt;path fill-rule=&#34;evenodd&#34;
+                d=&#34;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&#34;&gt;
+            &lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/a&gt;
+    其他示例
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;; 基本信息
+!define APP_NAME &amp;quot;doghead-tool&amp;quot;
+!define APP_LNK_NAME &amp;quot;狗头工具&amp;quot;
+!define APP_VERSION &amp;quot;1.0.0&amp;quot;
+ 
+; 新版 UI 2.0
+!include &amp;quot;MUI2.nsh&amp;quot;
+; 新版安装和卸载图标
+!define MUI_ICON &amp;quot;${NSISDIR}\Contrib\Graphics\Icons\orange-install.ico&amp;quot;
+!define MUI_UNICON &amp;quot;${NSISDIR}\Contrib\Graphics\Icons\orange-uninstall.ico&amp;quot;
+; 基础信息
+Name ${APP_NAME}
+OutFile &amp;quot;${APP_LNK_NAME} ${APP_VERSION} Setup.exe&amp;quot;
+InstallDir &amp;quot;$PROGRAMFILES\${APP_NAME}&amp;quot;
+
+; 安装完成后运行程序
+!define MUI_FINISHPAGE_RUN &amp;quot;$INSTDIR\${APP_NAME}.exe&amp;quot;
+!define MUI_FINISHPAGE_RUN_NOTCHECKED
+; 安装完成后显示信息
+!define MUI_FINISHPAGE_LINK &amp;quot;访问 rockrabbit 网站&amp;quot;
+!define MUI_FINISHPAGE_LINK_LOCATION &amp;quot;https://www.68wu.cn&amp;quot;
+
+; 安装目录选择页面
+!insertmacro MUI_PAGE_DIRECTORY
+; 安装过程页面
+!insertmacro MUI_PAGE_INSTFILES
+; 安装完成页面
+!insertmacro MUI_PAGE_FINISH
+; 卸载过程页面
+!insertmacro MUI_UNPAGE_CONFIRM
+; 卸载完成页面
+!insertmacro MUI_UNPAGE_INSTFILES
+
+; 定义语言
+!insertmacro MUI_LANGUAGE &amp;quot;SimpChinese&amp;quot;
+
+; 文件打包
+Section MainSetup
+  SetOutPath $INSTDIR
+  File &amp;quot;doghead-tool.exe&amp;quot;
+  File &amp;quot;app.ico&amp;quot;
+  ;创建注册信息
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;DisplayName&amp;quot; &amp;quot;${APP_NAME}&amp;quot;
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;DisplayVersion&amp;quot; &amp;quot;${APP_VERSION}&amp;quot;
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;Publisher&amp;quot; &amp;quot;rockrabbit&amp;quot;
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;UninstallString&amp;quot; &amp;quot;$\&amp;quot;$INSTDIR\Uninstall.exe$\&amp;quot;&amp;quot;
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;InstallLocation&amp;quot; &amp;quot;$INSTDIR&amp;quot;
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;DisplayIcon&amp;quot; &amp;quot;$INSTDIR\app.ico&amp;quot;
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;HelpLink&amp;quot; &amp;quot;https://www.68wu.cn&amp;quot;
+  WriteRegStr HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot; &amp;quot;URLInfoAbout&amp;quot; &amp;quot;https://www.68wu.cn&amp;quot;
+
+  ;创建菜单快捷方式
+  CreateDirectory &amp;quot;$SMPROGRAMS\${APP_NAME}&amp;quot;
+  CreateShortCut &amp;quot;$SMPROGRAMS\${APP_NAME}\${APP_LNK_NAME}.lnk&amp;quot; &amp;quot;$INSTDIR\${APP_NAME}.exe&amp;quot;
+  CreateShortCut &amp;quot;$STARTMENU\${APP_NAME}\${APP_LNK_NAME}.lnk&amp;quot; &amp;quot;$INSTDIR\${APP_NAME}.exe&amp;quot;
+  ;卸载程序
+  WriteUninstaller &amp;quot;$INSTDIR\Uninstall.exe&amp;quot;
+  ;创建桌面快捷方式
+  CreateShortCut &amp;quot;$DESKTOP\${APP_LNK_NAME}.lnk&amp;quot; &amp;quot;$INSTDIR\${APP_NAME}.exe&amp;quot;
+SectionEnd
+
+; 卸载程序
+Section Uninstall
+  ;删除安装目录
+  RMDir /r &amp;quot;$INSTDIR&amp;quot;
+  ;删除桌面快捷方式
+  Delete &amp;quot;$DESKTOP\${APP_LNK_NAME}.lnk&amp;quot;
+  ;删除注册信息
+  DeleteRegKey HKLM &amp;quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&amp;quot;
+  ;删除菜单快捷方式
+  Delete &amp;quot;$SMPROGRAMS\${APP_NAME}\${APP_LNK_NAME}.lnk&amp;quot;
+  Delete &amp;quot;$STARTMENU\${APP_NAME}\${APP_LNK_NAME}.lnk&amp;quot;
+  RMDir /r &amp;quot;$SMPROGRAMS\${APP_NAME}&amp;quot;
+SectionEnd
+&lt;/code&gt;&lt;/pre&gt;
+    </description>
+    </item>
+    
     <item>
     <title>Umami 一款简单的网站流量分析平台</title>
     <link>https://www.68wu.cn/post/tool/umami/</link>

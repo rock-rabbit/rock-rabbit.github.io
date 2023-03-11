@@ -6,7 +6,20 @@
     <description>Recent content in 工具 on rockrabbit的小屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 06 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.68wu.cn/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 NSIS 制作 Windows 安装程序</title>
+      <link>https://www.68wu.cn/post/tool/nsis/</link>
+      <pubDate>Sat, 11 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.68wu.cn/post/tool/nsis/</guid>
+      <description>介绍  NSIS 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。因为它是基于脚本语言，所以您可以完全控制安装程序的每个部分。
+NSIS 脚本语言支持变量、函数和字符串操作，就像普通编程语言一样 - 但专为创建安装程序而设计。即使具有所有这些功能，NSIS 仍然是最小的安装程序系统。使用默认选项时，它的开销仅为 34 KB。
+   特征   开销很小（小于 40kb） 强大的脚本语言 易于使用，支持各种功能，如自定义界面、卸载程序、创建桌面快捷方式等 支持多语言 独特的压缩选项（zlib，bzip2，lzma）     安装 NSIS  在 NSIS 下载地址 下载 NSIS 安装程序，安装完成后默认会安装到 C:\\Program Files (x86)\\NSIS。需要将这个目录添加进 PATH 里，以便使用 makensis.exe 执行 nsi 脚本。
+   创建 NSIS 安装程序  创建一个 NSIS 安装程序的过程包含三个主要步骤：
+ 编写 .nsi 脚本文件； 使用 makensis 编译脚本文件，makensis nsis.nsi ； 运行生成的 .</description>
+    </item>
+    
     <item>
       <title>Umami 一款简单的网站流量分析平台</title>
       <link>https://www.68wu.cn/post/tool/umami/</link>

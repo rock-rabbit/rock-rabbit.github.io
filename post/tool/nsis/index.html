@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark" />
+    <title>使用 NSIS 制作 Windows 安装程序 | 赵登睿的博客 - 济南独立软件开发者</title>
+
+     
+
+    <meta name="keywords" content="rockrabbit,赵登睿,赵登睿博客" />
+    <meta property="og:site_name" content="rockrabbit 的博客，分享技术、成长和生活。" />
+    <meta property="og:title" content="使用 NSIS 制作 Windows 安装程序" />
+    <meta itemprop="name" content="使用 NSIS 制作 Windows 安装程序" />
+    <meta name="twitter:title" content="使用 NSIS 制作 Windows 安装程序" />
+    <meta name="application-name" content="使用 NSIS 制作 Windows 安装程序" /><meta name="twitter:card" content="summary" />
+
+    <meta name="description"
+        content="NSIS 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。" />
+    <meta name="twitter:description"
+        content="NSIS 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。 " />
+    <meta itemprop="description"
+        content=" NSIS 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。 " />
+    <meta property="og:description"
+        content=" NSIS 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。 " />
+
+    
+
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="rockrabbit" />
+<meta property="og:article:published_time" content=2023-03-11T00:00:00Z />
+<meta property="article:published_time" content=2023-03-11T00:00:00Z />
+
+
+
+
+
+<script defer type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "使用 NSIS 制作 Windows 安装程序",
+    "author": {
+      "@type": "Person",
+      "name": "rockrabbit"
+    },
+    "datePublished": "2023-03-11",
+    "description": "NSIS 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。",
+    "wordCount":  319 ,
+    "mainEntityOfPage": "True",
+    "dateModified": "2022-03-11",
+    "publisher": {
+      "@type": "Organization",
+      "name": "rockrabbit",
+      "logo": {
+        "@type": "imageObject",
+        "url": "https:\/\/www.68wu.cn\/favicon.ico"
+      }
+    }
+  }
+</script>
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> 
+    <link rel="stylesheet" href="/sass/main.min.13c03f378fb459d5a62a4462b0f5b7fa8d5a865119cf71a64a65d229b594de1f.css" />
+    <script async defer data-website-id="bcde5651-ade7-4690-b15a-0f1e3037f9a8" data-domains="www.68wu.cn"
+    src="https://umami.68wu.cn/umami.js"></script>
+</head>
+    
+    <script>
+        (function() {
+            const colorSchemeKey = 'ThemeColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'ThemeColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.userColorScheme = 'dark';
+        } else {
+            document.documentElement.dataset.userColorScheme = 'light';
+        }
+    })();
+</script>
+
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    
+                    <img src="/favicon.ico" />
+                    
+                    rockrabbit 的小屋
+                </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/projects/" >💾 项目</a>
+                
+                <a href="/articles/" >📝 文章</a>
+                
+                
+                <button id="dark-mode-button">
+                    <svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163 0 1 0 1.643 1.641a1.163 1.163 0 0 0-1.643-1.641zm-16.022 14.38a1.74 1.74 0 0 0 0 2.465a1.742 1.742 0 1 0 0-2.465zm13.968-2.147a2.904 2.904 0 0 1-4.108 0a2.902 2.902 0 0 1 0-4.107a2.902 2.902 0 0 1 4.108 0a2.902 2.902 0 0 1 0 4.107z" fill="#FFCC4D"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                    <svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#FFD983" d="M16 2s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2V2zm18 14s2 0 2 2s-2 2-2 2h-2s-2 0-2-2s2-2 2-2h2zM4 16s2 0 2 2s-2 2-2 2H2s-2 0-2-2s2-2 2-2h2zm5.121-8.707s1.414 1.414 0 2.828s-2.828 0-2.828 0L4.878 8.708s-1.414-1.414 0-2.829c1.415-1.414 2.829 0 2.829 0l1.414 1.414zm21 21s1.414 1.414 0 2.828s-2.828 0-2.828 0l-1.414-1.414s-1.414-1.414 0-2.828s2.828 0 2.828 0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828 0s0-2.828 0-2.828l1.414-1.414s1.414-1.414 2.828 0s0 2.828 0 2.828l-1.414 1.414zM16 32s0-2 2-2s2 2 2 2v2s0 2-2 2s-2-2-2-2v-2z"/><circle fill="#FFD983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)" /></svg>
+                </button>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+        <main>
+            
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>使用 NSIS 制作 Windows 安装程序</h1>
+                    <div class="post-meta">
+                        <div>
+                            
+                            
+                            
+                            
+                            作者：rockrabbit | <time>发布日期：2023-03-11</time>
+                            | 阅读时间：2 分钟
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E5%B7%A5%E5%85%B7/">工具</a>
+                            
+                            <a href="/tags/nsis/">NSIS</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+        <h3 id="介绍">
+    <a href="#%e4%bb%8b%e7%bb%8d" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    介绍
+</h3>
+<p><a href="https://nsis.sourceforge.io/Main_Page">NSIS</a> 是一款老牌专业开源软件，用来制作 Windows 安装程序。它可以实现程序的安装、卸载、系统设置、文件提取等功能。因为它是基于脚本语言，所以您可以完全控制安装程序的每个部分。</p>
+<p>NSIS 脚本语言支持变量、函数和字符串操作，就像普通编程语言一样 - 但专为创建安装程序而设计。即使具有所有这些功能，NSIS 仍然是最小的安装程序系统。使用默认选项时，它的开销仅为 34 KB。</p>
+<h3 id="特征">
+    <a href="#%e7%89%b9%e5%be%81" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    特征
+</h3>
+<ul>
+<li>开销很小（小于 40kb）</li>
+<li>强大的脚本语言</li>
+<li>易于使用，支持各种功能，如自定义界面、卸载程序、创建桌面快捷方式等</li>
+<li>支持多语言</li>
+<li>独特的压缩选项（zlib，bzip2，lzma）</li>
+</ul>
+<h3 id="安装-nsis">
+    <a href="#%e5%ae%89%e8%a3%85-nsis" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    安装 NSIS
+</h3>
+<p>在 <a href="https://nsis.sourceforge.io/Download">NSIS 下载地址</a> 下载 NSIS 安装程序，安装完成后默认会安装到 <code>C:\\Program Files (x86)\\NSIS</code>。需要将这个目录添加进 <code>PATH</code> 里，以便使用 <code>makensis.exe</code> 执行 nsi 脚本。</p>
+<p><img loading="lazy" 
+    src="/tool/nsis/install.png" 
+    alt="install" 
+     
+    width=1001 
+    height="705"  /></p>
+<p><img loading="lazy" 
+    src="/tool/nsis/install2.png" 
+    alt="install2" 
+     
+    width=496 
+    height="384"  /></p>
+<h3 id="创建-nsis-安装程序">
+    <a href="#%e5%88%9b%e5%bb%ba-nsis-%e5%ae%89%e8%a3%85%e7%a8%8b%e5%ba%8f" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    创建 NSIS 安装程序
+</h3>
+<p>创建一个 NSIS 安装程序的过程包含三个主要步骤：</p>
+<ol>
+<li>编写 <code>.nsi</code> 脚本文件；</li>
+<li>使用 <code>makensis</code> 编译脚本文件，<code>makensis nsis.nsi</code> ；</li>
+<li>运行生成的 <code>.exe</code> 安装程序；</li>
+</ol>
+<p>以下是一个示例脚本文件：</p>
+<pre><code>;--------------------------------
+; 常规属性
+;--------------------------------
+Name &quot;My Application&quot;
+OutFile &quot;MyApplication Setup.exe&quot;
+InstallDir &quot;$PROGRAMFILES\my_application&quot;
+
+;--------------------------------
+; 定义界面
+;--------------------------------
+!include &quot;MUI2.nsh&quot;
+
+;--------------------------------
+; 定义安装过程
+;--------------------------------
+; 安装目录选择页面
+!insertmacro MUI_PAGE_DIRECTORY
+; 安装过程页面
+!insertmacro MUI_PAGE_INSTFILES
+; 安装完成页面
+!insertmacro MUI_PAGE_FINISH
+
+; 卸载过程页面
+!insertmacro MUI_UNPAGE_CONFIRM
+; 卸载完成页面
+!insertmacro MUI_UNPAGE_INSTFILES
+
+;--------------------------------
+; 定义安装区段
+;--------------------------------
+Section &quot;MainSection&quot; SEC01
+    SetOutPath $INSTDIR
+    File &quot;MyApplication.exe&quot;
+SectionEnd
+
+;--------------------------------
+; 定义卸载区段
+;--------------------------------
+Section &quot;Uninstall&quot; SEC02
+    Delete $INSTDIR\\MyApplication.exe
+    RMDir $INSTDIR
+SectionEnd
+
+</code></pre><p>示例脚本说明：</p>
+<p>常规属性：</p>
+<p><code>Name</code> 定义程序名称；</p>
+<p><code>OutFile</code> NSIS 输出文件，也就是安装文件的输出路径；</p>
+<p><code>InstallDir</code> 安装目录；</p>
+<p><code>定义界面</code>：引入新界面样式的头文件；</p>
+<p><code>定义安装过程</code>：安装过程有两种，安装过程和卸载过程；</p>
+<p>区段 (Section) ：</p>
+<p>安装时可能要选择安装多个组件，区段就是定义组件的安装文件和逻辑；</p>
+<p><code>安装区段</code>：安装区段的名字定义相对随意，除了卸载区段的名称限制其他的都是安装区段；</p>
+<p><code>卸载区段</code>：卸载区段的名字限制：前缀为 <code>un.</code> 或者名字是 <code>Uninstall</code> 的区段；</p>
+<p>常量：</p>
+<p><code>$PROGRAMFILES</code>：程序目录；</p>
+<p>变量：</p>
+<p><code>$INSTDIR</code> ：安装目录；</p>
+<p>脚本还有很多功能，可以查看手册：</p>
+<p><a href="tool/nsis/NSIS.chm">下载中文版 NSIS.chm</a></p>
+<h3 id="其他示例">
+    <a href="#%e5%85%b6%e4%bb%96%e7%a4%ba%e4%be%8b" class="anchor">
+        <svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+            <path fill-rule="evenodd"
+                d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+            </path>
+        </svg>
+    </a>
+    其他示例
+</h3>
+<pre><code>; 基本信息
+!define APP_NAME &quot;doghead-tool&quot;
+!define APP_LNK_NAME &quot;狗头工具&quot;
+!define APP_VERSION &quot;1.0.0&quot;
+ 
+; 新版 UI 2.0
+!include &quot;MUI2.nsh&quot;
+; 新版安装和卸载图标
+!define MUI_ICON &quot;${NSISDIR}\Contrib\Graphics\Icons\orange-install.ico&quot;
+!define MUI_UNICON &quot;${NSISDIR}\Contrib\Graphics\Icons\orange-uninstall.ico&quot;
+; 基础信息
+Name ${APP_NAME}
+OutFile &quot;${APP_LNK_NAME} ${APP_VERSION} Setup.exe&quot;
+InstallDir &quot;$PROGRAMFILES\${APP_NAME}&quot;
+
+; 安装完成后运行程序
+!define MUI_FINISHPAGE_RUN &quot;$INSTDIR\${APP_NAME}.exe&quot;
+!define MUI_FINISHPAGE_RUN_NOTCHECKED
+; 安装完成后显示信息
+!define MUI_FINISHPAGE_LINK &quot;访问 rockrabbit 网站&quot;
+!define MUI_FINISHPAGE_LINK_LOCATION &quot;https://www.68wu.cn&quot;
+
+; 安装目录选择页面
+!insertmacro MUI_PAGE_DIRECTORY
+; 安装过程页面
+!insertmacro MUI_PAGE_INSTFILES
+; 安装完成页面
+!insertmacro MUI_PAGE_FINISH
+; 卸载过程页面
+!insertmacro MUI_UNPAGE_CONFIRM
+; 卸载完成页面
+!insertmacro MUI_UNPAGE_INSTFILES
+
+; 定义语言
+!insertmacro MUI_LANGUAGE &quot;SimpChinese&quot;
+
+; 文件打包
+Section MainSetup
+  SetOutPath $INSTDIR
+  File &quot;doghead-tool.exe&quot;
+  File &quot;app.ico&quot;
+  ;创建注册信息
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;DisplayName&quot; &quot;${APP_NAME}&quot;
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;DisplayVersion&quot; &quot;${APP_VERSION}&quot;
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;Publisher&quot; &quot;rockrabbit&quot;
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;UninstallString&quot; &quot;$\&quot;$INSTDIR\Uninstall.exe$\&quot;&quot;
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;InstallLocation&quot; &quot;$INSTDIR&quot;
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;DisplayIcon&quot; &quot;$INSTDIR\app.ico&quot;
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;HelpLink&quot; &quot;https://www.68wu.cn&quot;
+  WriteRegStr HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot; &quot;URLInfoAbout&quot; &quot;https://www.68wu.cn&quot;
+
+  ;创建菜单快捷方式
+  CreateDirectory &quot;$SMPROGRAMS\${APP_NAME}&quot;
+  CreateShortCut &quot;$SMPROGRAMS\${APP_NAME}\${APP_LNK_NAME}.lnk&quot; &quot;$INSTDIR\${APP_NAME}.exe&quot;
+  CreateShortCut &quot;$STARTMENU\${APP_NAME}\${APP_LNK_NAME}.lnk&quot; &quot;$INSTDIR\${APP_NAME}.exe&quot;
+  ;卸载程序
+  WriteUninstaller &quot;$INSTDIR\Uninstall.exe&quot;
+  ;创建桌面快捷方式
+  CreateShortCut &quot;$DESKTOP\${APP_LNK_NAME}.lnk&quot; &quot;$INSTDIR\${APP_NAME}.exe&quot;
+SectionEnd
+
+; 卸载程序
+Section Uninstall
+  ;删除安装目录
+  RMDir /r &quot;$INSTDIR&quot;
+  ;删除桌面快捷方式
+  Delete &quot;$DESKTOP\${APP_LNK_NAME}.lnk&quot;
+  ;删除注册信息
+  DeleteRegKey HKLM &quot;Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}&quot;
+  ;删除菜单快捷方式
+  Delete &quot;$SMPROGRAMS\${APP_NAME}\${APP_LNK_NAME}.lnk&quot;
+  Delete &quot;$STARTMENU\${APP_NAME}\${APP_LNK_NAME}.lnk&quot;
+  RMDir /r &quot;$SMPROGRAMS\${APP_NAME}&quot;
+SectionEnd
+</code></pre>
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/tool/umami/" title="Umami 一款简单的网站流量分析平台">
+            <span>上一篇</span>
+            Umami 一款简单的网站流量分析平台
+        </a>
+        
+
+        
+    </nav>
+    
+</div>
+
+<div class="container">
+    
+</div>
+
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+            <a href="https://beian.miit.gov.cn/">冀ICP备20017556号-1</a>
+            
+        </nav>
+
+        
+    </section>
+    <script defer src="/ts/features.c81551cd4dbef120af278f16966a41142c02be9ff5d6a669be09820fbf047456.js" 
+    data-enable-footnotes="true"
+    ></script>
+</footer>
+
+    </body>
+</html>
